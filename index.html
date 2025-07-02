@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Alfa Line</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="/src/scss/main.scss">
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="container">
+      <div class="header__inner">
+        <a class="header__logo logo" href="/">
+          <img src="src/images/logo.svg" alt="logo company">
+        </a>
+
+        <button class="header__burger" type="button" aria-label="Меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="header__nav nav">
+          <ul class="nav__list" role='list'>
+            <li class="nav__item">
+              <a href="#" class="nav__link action">Продукция</a>
+            </li>
+            <li class="nav__item">
+              <a href="#" class="nav__link action">Сферы применения</a>
+            </li>
+            <li class="nav__item">
+              <a href="#" class="nav__link action">О компании</a>
+            </li>
+            <li class="nav__item">
+              <a href="#" class="nav__link action">Сертификаты</a>
+            </li>
+            <li class="nav__item">
+              <a href="#" class="nav__link action">Контакты</a>
+            </li>
+            <li class="nav__item">
+              <a href="#" class="nav__link action">Вакансии</a>
+            </li>
+
+            <button class="header__btn action mobile-btn" type="button">
+              Обратный звонок
+            </button>
+          </ul>
+
+        </nav>
+
+        <button class="header__btn action" type="button">
+          Обратный звонок
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">main</main>
+
+  <footer class="footer">
+    <div class="footer__inner items">
+      <div class="item item-1 footer__logo">
+        <img src="src/images/logo_footer.svg" alt="logo company">
+      </div>
+      <div class="item item-2">
+        <p class="item__desc">
+          AlfaLine - средство, изготовленное на основе высокомолекулярного водорастворимого полимера
+        </p>
+      </div>
+
+      <nav class="footer__nav item item-3 nav">
+        <ul class="nav__list" role='list'>
+          <li class="nav__item">
+            <a href="#" class="nav__link">Продукция</a>
+          </li>
+          <li class="nav__item">
+            <a href="#" class="nav__link">Сферы применения</a>
+          </li>
+          <li class="nav__item">
+            <a href="#" class="nav__link">О компании</a>
+          </li>
+          <li class="nav__item">
+            <a href="#" class="nav__link">Сертификаты</a>
+          </li>
+          <li class="nav__item">
+            <a href="#" class="nav__link">Контакты</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="item item-4">
+        <a href="#" class="phone__link">
+          (3812) 67-61-30
+        </a>
+      </div>
+      <div class="item item-5">
+        <address>
+          Адрес: г. Омск, пр-т Мира, д. 185, корпус 2. 
+        </address>
+        <a href="#" class="email__link">
+          Email: info@alfa-npo.ru
+        </a>
+      </div>
+    </div>
+  </footer>
+  <div class="overlay"></div>
+  <script type="module" src="/src/main.ts">
+  </script>
+</body>
+
+</html>

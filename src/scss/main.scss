@@ -1,0 +1,59 @@
+@use 'vars' as *;
+@use 'reset';
+@use 'global';
+@use 'mixins' as mixin;
+
+@use 'header';
+@use 'footer';
+
+body {
+  display: flex;
+  flex-direction: column;
+  @include mixin.font;
+  background-color: $bg;
+  color: $color-button-light-bg;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+main {
+  flex: 1;
+}
+
+$padding-x: clamp(.7rem, 2vw, 1.22rem);
+
+.container {
+  max-width: calc(100rem - ($padding-x * 2));
+  padding: 0 $padding-x;
+  margin: 0 auto;
+}
+
+.nav {
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    height: 100%;
+
+    footer & {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 25rem;
+    }
+  }
+
+  &__link {
+    background-color: transparent;
+
+    @include mixin.respond-to(handhelds) {
+      justify-content: center;
+    }
+
+    header & {
+      background-color: $color-button-light-bg;
+    }
+  }
+}

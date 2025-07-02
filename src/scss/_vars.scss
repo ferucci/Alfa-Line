@@ -1,0 +1,33 @@
+$color-primary: rgb(24, 198, 172);
+$color-secondary: rgb(0, 118, 139);
+$color-white: rgba(255, 255, 255);
+$bg: rgb(238, 242, 240);
+$color-button-light-bg: rgba($color-primary, 0.2);
+
+$border-radius-sm: 1rem;
+
+
+// adaptive
+$small: 576px;
+$tablets: 768px;
+$large: 1200px;
+$container: 1600px;
+
+// Grid positions
+$items-positions: (
+  desktop: (1: (row: 1, column: 1),
+    2: (row: 2, column: 1, mw: 16rem),
+    3: (row: 1 / span 2, column: 2),
+    4: (row: 1, column: 3, ac: center),
+    5: (row: 2, column: 3, pos: -50%)),
+  laptop: (1: (row: 1, column: 1),
+    2: (row: 2, column: 1),
+    3: (row: 2, column: 2 / span 2),
+    4: (row: 1, column: 3),
+    5: (row: 1, column: 2)),
+  mobile: (1: (row: 1, column: 1),
+    2: (row: 4, column: 1 / span 3),
+    3: (row: 3, column: 1 / span 3),
+    4: (row: 1, column: 3),
+    5: (row: 2, column: 1 / span 3))
+);

@@ -1,0 +1,116 @@
+@use 'vars' as *;
+@use 'mixins' as mixin;
+@use "sass:map";
+
+// Breakpoints
+$desktop-breakpoint: 1200px;
+$mobile-breakpoint: 768px;
+
+// Base footer styles
+.footer {
+  color: $color-white;
+  background: $color-secondary;
+  border-top-left-radius: calc($border-radius-sm * 2);
+  border-top-right-radius: calc($border-radius-sm * 2);
+  padding: 3rem 2rem;
+
+  &__logo {
+    max-width: 12rem;
+  }
+
+  &__inner {
+    --gap-size: 1rem;
+    display: grid;
+    gap: var(--gap-size);
+    grid-template-columns: 1fr;
+  }
+}
+
+// Common item styles
+.footer__inner .item {
+  height: 100%;
+  font-size: clamp(.77rem, 1.5vw, 1.12rem);
+  font-weight: 500;
+
+  &__desc {
+    font-weight: 400;
+    font-size: clamp(.66rem, 2vw, .8rem);
+  }
+
+  .phone__link {
+    font-size: clamp(.88rem, 4vw, 1.3rem);
+    font-weight: 700;
+    text-wrap: nowrap;
+  }
+
+  address {
+    text-wrap: nowrap;
+  }
+}
+
+// Responsive styles
+@include mixin.respond-to(wide-screens) {
+  .footer__inner {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, .5fr);
+    --gap-size: 1rem;
+
+    .item {
+      address {
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    @include mixin.position-items(desktop);
+  }
+}
+
+@include mixin.respond-to(medium-screens) {
+  .footer__inner {
+    --gap-size: 3rem;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, .5fr);
+
+    .item:not(.item-2) {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .item-4 {
+      align-items: end;
+    }
+
+    .nav__list {
+      gap: 2rem;
+      margin: 0 auto;
+    }
+
+    address {
+      margin-bottom: .5rem;
+    }
+
+    @include mixin.position-items(laptop);
+  }
+}
+
+@include mixin.respond-to(tablet) {
+  .footer__inner {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+
+    .nav__list {
+      max-width: 18rem;
+      gap: 1rem;
+    }
+
+    .item__desc,
+    .item-5 {
+      text-align: center;
+      max-width: 25rem;
+      margin: 0 auto;
+    }
+
+    @include mixin.position-items(mobile);
+  }
+}

@@ -1,0 +1,172 @@
+@use 'vars' as *;
+@use 'mixins' as mixin;
+
+.header {
+  margin-top: clamp(0.7rem, 2vw, 2rem);
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; // Изменено с space-around для лучшего контроля
+    gap: 1.5rem;
+
+    color: $color-secondary;
+    background: $color-white;
+    padding: .7rem 1rem;
+    border-radius: $border-radius-sm;
+    position: relative; // Для позиционирования бургера
+  }
+
+  &__logo {
+    z-index: 11; // Чтобы лого было над меню
+  }
+
+  &__nav {
+    .mobile-btn {
+      display: none;
+
+      @include mixin.respond-to(tablet) {
+        display: block;
+        max-width: 12rem;
+        width: 100%;
+      }
+
+      @include mixin.respond-to(handhelds) {
+        max-width: 100%;
+      }
+    }
+
+    @include mixin.respond-to(medium-screens) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: fit-content;
+      background: $color-white;
+      z-index: 10;
+      transform: translateY(-200%);
+      transition: transform 0.3s ease;
+      padding-top: 5rem;
+      display: flex;
+      justify-content: center;
+      border-radius: $border-radius-sm;
+
+      &.active {
+        transform: translateX(0);
+      }
+    }
+
+  }
+
+  &__btn {
+    background-color: $color-secondary;
+    color: $color-white;
+    z-index: 11;
+
+    &:not(.mobile-btn) {
+      @include mixin.respond-to(medium-screens) {
+        margin-left: auto;
+      }
+
+      @include mixin.respond-to(tablet) {
+        display: none;
+      }
+    }
+
+  }
+
+  // Бургер-меню
+  &__burger {
+    display: none; // Скрыто по умолчанию
+
+    @include mixin.respond-to(medium-screens) {
+      display: block;
+      width: 30px;
+      height: 20px;
+      position: relative;
+      z-index: 11;
+      order: 3;
+      cursor: pointer;
+
+      span {
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background: $color-secondary;
+        left: 0;
+        transition: all 0.3s ease;
+
+        &:nth-child(1) {
+          top: 0;
+        }
+
+        &:nth-child(2) {
+          top: 50%;
+          transform: translateY(-50%);
+        }
+
+        &:nth-child(3) {
+          bottom: 0;
+        }
+      }
+
+      &.active {
+        span {
+          &:nth-child(1) {
+            transform: rotate(45deg);
+            top: 50%;
+          }
+
+          &:nth-child(2) {
+            opacity: 0;
+          }
+
+          &:nth-child(3) {
+            transform: rotate(-45deg);
+            bottom: 50%;
+          }
+        }
+      }
+    }
+  }
+}
+
+.nav {
+  &__list {
+
+    @include mixin.respond-to(medium-screens) {
+      flex-wrap: wrap;
+      max-width: 50vw;
+      padding: 0 .55rem 2rem
+    }
+
+    @include mixin.respond-to(tablet) {
+      max-width: 70vw;
+    }
+
+    @include mixin.respond-to(handhelds) {
+      max-width: 100%;
+      padding: 0 .55rem 1rem
+    }
+
+  }
+
+  &__item {
+    list-style: none;
+
+    @include mixin.respond-to(handhelds) {
+      width: 100%;
+    }
+  }
+
+
+  &__link {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: yellow;
+    }
+  }
+}

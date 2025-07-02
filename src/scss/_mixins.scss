@@ -1,0 +1,77 @@
+@use "sass:map";
+@use 'vars' as *;
+
+@mixin font($weight: 400) {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: $weight;
+  font-style: normal;
+  line-height: 100%;
+}
+
+@mixin respond-to($media) {
+
+  // карманные компьютеры
+  @if $media ==handhelds {
+    @media only screen and (max-width: $small) {
+      @content;
+    }
+  }
+
+  @if $media ==tablet {
+    @media only screen and (max-width: $tablets) {
+      @content;
+    }
+  }
+
+  @if $media ==medium-screens {
+    @media only screen and (max-width: $large) {
+      @content;
+    }
+  }
+
+  // @else if $media ==medium-screens {
+  //   @media only screen and (min-width: ($small + 1)) and (max-width: ($large - 1)) {
+  //     @content;
+  //   }
+  // }
+
+  // широкий экран
+  @else if $media ==wide-screens {
+    @media only screen and (min-width: $large) {
+      @content;
+    }
+  }
+
+  @else if $media ==cont-w {
+    @media only screen and (min-width: $container) {
+      @content;
+    }
+  }
+
+}
+
+@mixin position-items($breakpoint) {
+  $positions: map.get($items-positions, $breakpoint);
+
+  @for $i from 1 through 5 {
+    .item-#{$i} {
+      $pos: map.get($positions, $i);
+      grid-row: map.get($pos, 'row');
+      grid-column: map.get($pos, 'column');
+
+      @if map.has-key($pos, 'ac') {
+        margin-top: 1rem;
+      }
+
+      @if map.has-key($pos, 'mw') {
+        max-width: map.get($pos, 'mw');
+      }
+
+      @if map.has-key($pos, 'pos') {
+        position: relative;
+        top: map.get($pos, 'pos');
+      }
+    }
+  }
+}
