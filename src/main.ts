@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!overlay.classList.contains('active')) {
           overlay.style.display = 'none';
         }
-      }, 300); // Должно совпадать с длительностью transition
+      }, 300);
     }
   });
 

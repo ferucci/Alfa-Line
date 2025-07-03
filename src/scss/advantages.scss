@@ -1,0 +1,125 @@
+@use 'vars' as *;
+@use 'mixins' as mixin;
+
+.advantages {
+  $gap: clamp(1.22rem, 3vw, 2rem);
+
+  &__inner {
+    background-color: $color-primary;
+    border-radius: calc($border-radius-sm * 2);
+    padding: clamp(2.2rem, 5vw, 3.3rem) clamp(0rem, 2vw, 2.5rem);
+  }
+
+  &__title {
+    color: $color-white;
+    margin-bottom: clamp(1.5rem, 3vw, 3.5rem);
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $gap;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 1.22rem;
+
+    max-width: calc(50% - ($gap / 2));
+    background-color: $color-white;
+    border-radius: $border-radius-sm;
+    padding: clamp(1.22rem, 3vw, 1.77rem) clamp(1rem, 3vw, 1.5rem);
+
+    @include mixin.respond-to(tablet) {
+      max-width: 100%;
+    }
+
+  }
+
+  &__item-title {
+    @include mixin.titleSmall();
+  }
+
+  &__item-desc {
+    @include mixin.textDescription();
+    color: $color-desc-text;
+  }
+
+  &__item-accent {
+    font-weight: 500;
+    line-height: 25px;
+    font-size: 2.2rem;
+    color: $color-primary;
+  }
+
+  &__example {
+    .container {
+      display: flex;
+
+      @include mixin.respond-to(tablet) {
+        display: block;
+      }
+    }
+
+    img {
+      max-width: max-content;
+      height: 100%;
+
+      @include mixin.respond-to(tablet) {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
+    &-items {
+      display: flex;
+      align-items: center;
+      background-color: $color-white;
+      margin-left: -0.7rem;
+      padding-left: 0.7rem;
+
+      @include mixin.respond-to(medium-screens) {
+        flex-direction: column;
+      }
+
+      @include mixin.respond-to(tablet) {
+        margin-left: 0;
+        margin-top: -1rem;
+        padding-top: 1rem;
+      }
+    }
+
+    .advantages__item {
+      max-width: 100%;
+      justify-content: space-between;
+      border-radius: 0;
+
+
+      &:first-child {
+        margin-left: 2rem;
+
+        @include mixin.respond-to(medium-screens) {
+          margin-left: 0;
+        }
+      }
+
+      @include mixin.respond-to(tablet) {
+        align-items: center;
+        text-align: center;
+      }
+
+
+    }
+
+    .advantages__item-title {
+      font-weight: 400;
+    }
+
+  }
+
+  &__image {
+    position: relative;
+    z-index: 2;
+  }
+}

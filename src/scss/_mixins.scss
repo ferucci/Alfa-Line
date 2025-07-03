@@ -9,6 +9,18 @@
   line-height: 100%;
 }
 
+@mixin titleSmall($weight: 500) {
+  font-size: $fs-title;
+  line-height: 25px;
+  font-weight: $weight;
+}
+
+@mixin textDescription($weight: 400) {
+  font-size: $fs-text;
+  line-height: 21px;
+  font-weight: $weight;
+}
+
 @mixin respond-to($media) {
 
   // карманные компьютеры

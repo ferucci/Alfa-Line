@@ -6,12 +6,16 @@
 @use 'header';
 @use 'footer';
 
+@use 'hero';
+@use 'advantages';
+@use 'products';
+
 body {
   display: flex;
   flex-direction: column;
   @include mixin.font;
   background-color: $bg;
-  color: $color-button-light-bg;
+  color: $color-text;
 }
 
 body.no-scroll {

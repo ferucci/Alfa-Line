@@ -1,0 +1,238 @@
+@use 'vars' as *;
+@use 'mixins' as mixin;
+$widthLargePicture: 860px;
+
+@mixin caclWidth($width: $widthLargePicture) {
+  width: calc(100vw - $width - 5rem);
+}
+
+.hero {
+  padding-top: 1.5rem;
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 38% 1fr;
+    gap: 0 2rem;
+
+    // @include mixin.respond-to(medium-screens) {}
+
+    @include mixin.respond-to(handhelds) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__title {
+    font-size: clamp(1.22rem, 5vw, 2.88rem);
+    max-width: 64rem;
+    padding-top: 2.5rem;
+    padding-left: 1rem;
+    color: $color-secondary;
+    grid-column: 1 / span 2;
+
+    @include mixin.respond-to(medium-screens) {
+      grid-column: 1 / span 2;
+      grid-row: 1;
+      width: auto;
+      max-width: 100%;
+      text-align: center;
+      padding-bottom: clamp(2.1rem, 2vw, 1.3rem);
+      padding-left: 0;
+    }
+  }
+
+  &__image {
+    grid-row: 2 / span 3;
+    grid-column: 2;
+    width: 100%;
+    margin-top: -11rem;
+
+    @include mixin.respond-to(medium-screens) {
+      grid-row: 2;
+      grid-column: 1/ span 2;
+      margin-top: 0;
+    }
+  }
+
+  &__image img {
+    height: 100%;
+    object-fit: contain;
+    width: 100%;
+
+    @include mixin.respond-to(medium-screens) {
+      width: 100%;
+      height: auto
+    }
+  }
+
+  &__subtitle {
+    margin-top: -1rem;
+    grid-row: 2;
+
+    @include mixin.respond-to(medium-screens) {
+      width: auto;
+      max-width: 100%;
+      height: 100%;
+      grid-row: 3;
+      grid-column: 2;
+      margin-top: clamp(-6rem, -7vw, -2rem);
+    }
+
+    @include mixin.respond-to(handhelds) {
+      grid-column: 1 / span 2;
+      margin-top: clamp(-6rem, -15vw, -3rem);
+    }
+
+    &-text {
+      font-size: $fs-text;
+      padding: 1.66rem;
+      background-color: $color-white;
+      border-radius: $border-radius-sm;
+      border-top-right-radius: 0;
+      color: black;
+      line-height: 1.5rem;
+      height: 90%;
+
+      @include mixin.respond-to(medium-screens) {
+        padding: clamp(1.5rem, 3vw, 2.5rem) 2.5rem 2rem;
+      }
+
+      @include mixin.respond-to(handhelds) {
+        line-height: 16px;
+        padding: 1.5rem;
+      }
+    }
+
+    .icon {
+      display: flex;
+      position: relative;
+
+      .null,
+      .item {
+        height: 3rem;
+
+        @include mixin.respond-to(medium-screens) {
+          height: clamp(3.5rem, 9vw, 6.5rem)
+        }
+      }
+
+      .null {
+        width: 70%;
+        background-color: transparent;
+        overflow: hidden;
+
+        &::after {
+          position: absolute;
+          content: "";
+          bottom: 0;
+          right: 30%;
+
+          // Стили для треугольника ▼
+          width: 0;
+          height: 0;
+          border-left: 8px solid transparent;
+          border-right: 8px solid transparent;
+          border-top: 8px solid rgb(255, 255, 255);
+          background-color: transparent;
+          transform: rotate(-45deg) translate(5px, 10px);
+
+          @include mixin.respond-to(medium-screens) {
+            right: 40%;
+          }
+
+          @include mixin.respond-to(handhelds) {
+            right: 24%;
+          }
+        }
+
+        @include mixin.respond-to(handhelds) {
+          height: clamp(4rem, 16vw, 6.5rem);
+          width: 100%;
+        }
+      }
+
+      .item {
+        background-color: $color-white;
+        border-top-right-radius: 1rem;
+        border-top-left-radius: 1rem;
+        width: 30%;
+        position: relative;
+
+        @include mixin.respond-to(medium-screens) {
+          width: 45%;
+        }
+
+        @include mixin.respond-to(handhelds) {
+          width: 30%;
+          height: inherit;
+        }
+
+        &::after {
+          position: absolute;
+          content: "";
+          top: 50%;
+          left: 50%;
+          transform: translateX(-50%);
+          background-image: url(../images/icons/hero-icon.svg);
+          background-repeat: no-repeat;
+          width: 2rem;
+          height: 2rem;
+          background-repeat: no-repeat;
+        }
+      }
+    }
+  }
+
+  &__adv {
+    margin-top: 3.2rem;
+    grid-row: 3;
+
+    @include mixin.respond-to(medium-screens) {
+      width: auto;
+      margin-top: clamp(1rem, 2vw, 1.6rem);
+      max-width: 100%;
+    }
+
+    @include mixin.respond-to(handhelds) {
+      grid-row: 4;
+      grid-column: 1 / span 2;
+    }
+
+    &-list {
+      list-style: none;
+    }
+
+    &-item {
+      font-size: $fs-text;
+      border: 1px solid $color-primary;
+      border-radius: $border-radius-sm * 2;
+      padding: 0.7rem .7rem .7rem 3rem;
+      position: relative;
+
+      &::after {
+        position: absolute;
+        content: "";
+        top: 50%;
+        left: .5rem;
+        transform: translateY(-50%);
+        width: 1.8rem;
+        height: 1.8rem;
+        border-radius: 50%;
+        background-color: $color-primary;
+      }
+
+      &::before {
+        position: absolute;
+        content: "✓";
+        top: 50%;
+        left: 1rem;
+        transform: translateY(-50%);
+        z-index: 1;
+        color: $color-white;
+      }
+    }
+
+    &-item+&-item {
+      margin-top: clamp(.7rem, 2vw, 1.35rem)
+    }
+  }
+}

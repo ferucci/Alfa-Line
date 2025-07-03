@@ -1,5 +1,9 @@
 @use 'mixins' as mixin;
 
+.section {
+  margin-bottom: clamp(1.5rem, 3vw, 3rem);
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -12,9 +16,18 @@ a {
   border-radius: 1rem;
   height: 3rem;
   align-items: center;
+  justify-content: center;
 }
 
+.title {
+  font-size: clamp(1.22rem, 3.7vw, 2.22rem);
+  font-weight: 600;
+  line-height: 100%;
 
+  @include mixin.respond-to(handhelds) {
+    text-align: center;
+  }
+}
 
 .overlay {
   display: none;

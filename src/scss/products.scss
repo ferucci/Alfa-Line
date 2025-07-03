@@ -1,0 +1,53 @@
+@use 'vars' as *;
+@use 'mixins' as mixin;
+
+.products {
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: clamp(4rem, 3vw, 2rem);
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    font-size: clamp(1.3rem, 3vw, .7rem);
+    font-weight: 500;
+    line-height: 25px;
+    color: $color-primary;
+  }
+}
+
+.product {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: $color-white;
+  border-radius: 1.22rem;
+  gap: 1.1rem;
+  padding: 1rem;
+
+  &__title {
+    font-weight: 500;
+    font-size: clamp(.8rem, 3vw, 1.22rem);
+
+  }
+
+  &__desc {
+    @include mixin.textDescription();
+    color: $color-desc-text;
+  }
+
+  &__btn {
+    background-color: $color-primary;
+    color: $color-white;
+    font-size: clamp(.66rem, 3vw, 1rem);
+    width: 100%;
+    text-align: center;
+  }
+}

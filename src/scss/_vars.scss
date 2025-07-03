@@ -1,11 +1,15 @@
 $color-primary: rgb(24, 198, 172);
 $color-secondary: rgb(0, 118, 139);
-$color-white: rgba(255, 255, 255);
+$color-white: rgb(255, 255, 255);
+$color-text: rgb(14, 56, 59);
+$color-desc-text: rgba(131, 143, 141, 1);
 $bg: rgb(238, 242, 240);
 $color-button-light-bg: rgba($color-primary, 0.2);
 
 $border-radius-sm: 1rem;
 
+$fs-text: clamp(0.7rem, 1.5vw, 1.12rem);
+$fs-title: clamp(1.07rem, 3vw, 1.22rem);
 
 // adaptive
 $small: 576px;

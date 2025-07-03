@@ -2,11 +2,6 @@
 @use 'mixins' as mixin;
 @use "sass:map";
 
-// Breakpoints
-$desktop-breakpoint: 1200px;
-$mobile-breakpoint: 768px;
-
-// Base footer styles
 .footer {
   color: $color-white;
   background: $color-secondary;
@@ -26,7 +21,6 @@ $mobile-breakpoint: 768px;
   }
 }
 
-// Common item styles
 .footer__inner .item {
   height: 100%;
   font-size: clamp(.77rem, 1.5vw, 1.12rem);
@@ -48,7 +42,6 @@ $mobile-breakpoint: 768px;
   }
 }
 
-// Responsive styles
 @include mixin.respond-to(wide-screens) {
   .footer__inner {
     grid-template-columns: repeat(3, 1fr);
