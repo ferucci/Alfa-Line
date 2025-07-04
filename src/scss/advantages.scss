@@ -54,6 +54,10 @@
   }
 
   &__example {
+    .advantages__item {
+      background-color: transparent;
+    }
+
     .container {
       display: flex;
 
@@ -78,6 +82,8 @@
       background-color: $color-white;
       margin-left: -0.7rem;
       padding-left: 0.7rem;
+      border-top-right-radius: $border-radius-sm;
+      border-bottom-right-radius: $border-radius-sm;
 
       @include mixin.respond-to(medium-screens) {
         flex-direction: column;
@@ -87,6 +93,9 @@
         margin-left: 0;
         margin-top: -1rem;
         padding-top: 1rem;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: $border-radius-sm;
+        border-bottom-left-radius: $border-radius-sm;
       }
     }
 

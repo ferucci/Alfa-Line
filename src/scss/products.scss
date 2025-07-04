@@ -5,10 +5,13 @@
 
   &__top {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    gap: 0 2rem;
+    margin-bottom: clamp(2rem, 3vw, 4rem);
+  }
 
-    margin-bottom: clamp(4rem, 3vw, 2rem);
+  &__title {
+    text-align: start;
   }
 
   &__link {
@@ -19,28 +22,85 @@
     font-weight: 500;
     line-height: 25px;
     color: $color-primary;
+
+    svg {
+      flex-shrink: 0;
+    }
+  }
+
+  &__link-item {
+    font-size: clamp(.77rem, 2.5vw, 1.3rem);
+    text-wrap: nowrap;
+  }
+
+  .products-slider {
+    width: 100%;
+    overflow: hidden;
+    /* Важно для корректного отображения */
+  }
+
+  .swiper-wrapper {
+    display: flex;
+    align-items: stretch;
+    /* Чтобы слайды были одной высоты */
+  }
+
+  .swiper-slide {
+    width: auto;
+    /* Ширина будет определяться содержимым */
+    flex-shrink: 0;
+    /* Чтобы слайды не сжимались */
+    height: auto;
+    /* Высота по содержимому */
+    max-width: 23rem;
+
+    @include mixin.respond-to(handhelds) {
+      max-width: 20rem;
+    }
   }
 }
 
 .product {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: column;
   background-color: $color-white;
   border-radius: 1.22rem;
   gap: 1.1rem;
   padding: 1rem;
 
+  &__content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 1rem;
+    width: 100%;
+    /* Занимает всё доступное пространство */
+  }
+
+  &__image-container {
+    max-height: 20rem;
+
+    @include mixin.respond-to(tablet) {
+      max-height: 15rem;
+    }
+  }
+
+  &__image {
+    height: 100%;
+    margin: 0 auto;
+  }
+
   &__title {
     font-weight: 500;
     font-size: clamp(.8rem, 3vw, 1.22rem);
-
   }
 
   &__desc {
     @include mixin.textDescription();
     color: $color-desc-text;
+    flex-grow: 1;
   }
 
   &__btn {

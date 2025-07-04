@@ -1,7 +1,7 @@
 @use 'mixins' as mixin;
 
 .section {
-  margin-bottom: clamp(1.5rem, 3vw, 3rem);
+  margin-bottom: clamp(2.5rem, 3vw, 5rem);
 }
 
 a {

@@ -1,3 +1,7 @@
+
+import Swiper from 'swiper';
+import type { SwiperOptions } from 'swiper/types';
+
 document.addEventListener('DOMContentLoaded', () => {
   const burger = document.querySelector<HTMLButtonElement>('.header__burger');
   const nav = document.querySelector<HTMLElement>('.header__nav');
@@ -37,4 +41,25 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.classList.remove('no-scroll');
     setTimeout(() => overlay.style.display = 'none', 300);
   });
+
+
+  const options: SwiperOptions = {
+    slidesPerView: "auto",
+    loop: true, // Бесконечный слайдер
+    centeredSlides: false,
+    spaceBetween: 15,
+    grabCursor: true, // Курсор-рука при наведении
+    // freeMode: true,
+    resistance: true, // Сопротивление при прокрутке
+    resistanceRatio: 0.85,
+
+    breakpoints: {
+      1400: {
+        slidesPerView: 4
+      }
+    }
+  }
+  new Swiper('.products-slider', options)
+
+
 });
