@@ -1,0 +1,44 @@
+@use 'vars' as *;
+@use 'mixins' as mixin;
+
+.partners {
+  position: relative;
+  z-index: 2;
+  margin-bottom: -6rem;
+
+
+  @include mixin.respond-to(medium-screens) {
+    margin-bottom: -3rem;
+  }
+
+  @include mixin.respond-to(handhelds) {
+    margin-bottom: -5rem;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(1rem, 5vw, 3.5rem);
+    background-color: $color-white;
+    margin: 0 5rem;
+
+    border-radius: $border-radius-sm;
+
+    @include mixin.respond-to(medium-screens) {
+      margin: 0 2rem;
+    }
+
+    @include mixin.respond-to(handhelds) {
+      flex-wrap: wrap;
+      margin: 0 1rem;
+      gap: .5rem;
+    }
+  }
+
+  &__item {
+    @include mixin.respond-to(handhelds) {
+      flex: 1 0 calc(50% - .5rem);
+    }
+  }
+}

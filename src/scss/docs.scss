@@ -1,0 +1,88 @@
+@use 'vars' as *;
+@use 'mixins' as mixin;
+
+.docs {
+  padding-top: clamp(7rem, 10vw, 11rem);
+  padding-bottom: clamp(5rem, 10vw, 9rem);
+  background-color: $color-secondary;
+  border-radius: calc($border-radius-sm * 2);
+
+  &__title {
+    margin-bottom: clamp(2.8rem, 4vw, 4.8rem);
+    text-align: center;
+    color: $color-white;
+  }
+
+  &__list {
+    display: flex;
+  }
+}
+
+
+.certificate-card {
+  max-width: 18rem;
+  border-radius: calc($border-radius-sm * 1.2);
+  position: relative;
+  background-color: $color-white;
+  padding: 1rem;
+  width: auto;
+  flex-shrink: 0;
+  height: auto;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+.certificate-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  pointer-events: none;
+}
+
+.download-button {
+  position: absolute;
+  bottom: -1rem;
+  right: .8rem;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: $color-primary;
+  border: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.download-button:hover {
+  background-color: $color-secondary;
+  transform: scale(1.05);
+}
+
+.certificate-description {
+  padding: 15px;
+}
+
+.certificate-description h3 {
+  margin: 0 0 10px 0;
+  color: #333;
+}
+
+.certificate-description p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.4;
+}

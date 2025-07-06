@@ -1,0 +1,62 @@
+@use 'vars' as *;
+@use 'mixins' as mixin;
+
+.features {
+
+  $gap: clamp(1.2rem, 3vw, 1.5rem);
+
+  &__inner {
+    padding: clamp(2.2rem, 5vw, 3.3rem) clamp(0rem, 2vw, 2.5rem) 0;
+  }
+
+  &__title {
+    margin-bottom: clamp(1.5rem, 3vw, 3.5rem);
+  }
+
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $gap;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.22rem;
+
+    flex: 1 1 calc(33% - ($gap / 2));
+    min-width: calc(33% - ($gap / 2));
+
+    background-color: $color-primary;
+    border-radius: $border-radius-sm;
+    padding: clamp(1.22rem, 3vw, 1.77rem) clamp(1rem, 3vw, 1.5rem);
+
+    @include mixin.respond-to(tablet) {
+      flex: 1 1 100%;
+      max-width: 100%;
+      height: 100%;
+    }
+
+  }
+
+  &__item.logo {
+    background-color: $color-white;
+  }
+
+  &__item.logo img {
+    max-height: 70%;
+    height: 100%;
+  }
+
+  &__item-title {
+    @include mixin.titleSmall($weight: 500);
+    color: $color-white
+  }
+
+  &__item-desc {
+    @include mixin.textDescription(clamp(0.7rem, 1.5vw, 1rem));
+    color: $color-white;
+  }
+
+}

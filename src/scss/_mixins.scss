@@ -9,14 +9,14 @@
   line-height: 100%;
 }
 
-@mixin titleSmall($weight: 500) {
-  font-size: $fs-title;
-  line-height: 25px;
+@mixin titleSmall($fs: $fs-title, $weight: 500, $lh: 25px) {
+  font-size: $fs;
+  line-height: $lh;
   font-weight: $weight;
 }
 
-@mixin textDescription($weight: 400) {
-  font-size: $fs-text;
+@mixin textDescription($fs: $fs-text, $weight: 400) {
+  font-size: $fs;
   line-height: 21px;
   font-weight: $weight;
 }

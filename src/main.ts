@@ -1,65 +1,28 @@
-
-import Swiper from 'swiper';
-import type { SwiperOptions } from 'swiper/types';
+import { burgerModal } from './typescript/burger';
+import { downloadImage } from './typescript/downloadDocs';
+import { DropdownManager } from './typescript/dropdown';
+import { Gallery } from './typescript/gallery';
+import { sliders } from './typescript/sliders';
+import { form } from './typescript/validForm';
+import { vars } from './typescript/vars';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const burger = document.querySelector<HTMLButtonElement>('.header__burger');
-  const nav = document.querySelector<HTMLElement>('.header__nav');
-  const overlay = document.querySelector<HTMLElement>('.overlay');
+  const { dropdownItems, downloadCertificateBtns } = vars;
 
-  if (!burger || !nav || !overlay) {
-    console.error('Не найдены необходимые элементы меню');
-    return;
-  }
-
-  burger.addEventListener('click', function (this: HTMLButtonElement) {
-    const isOpening = !this.classList.contains('active');
-
-    this.classList.toggle('active');
-    nav.classList.toggle('active');
-    document.body.classList.toggle('no-scroll');
-
-    // Плавное управление оверлеем
-    if (isOpening) {
-      overlay.style.display = 'block';
-      setTimeout(() => overlay.classList.add('active'), 10);
-    } else {
-      overlay.classList.remove('active');
-      setTimeout(() => {
-        if (!overlay.classList.contains('active')) {
-          overlay.style.display = 'none';
-        }
-      }, 300);
-    }
+  downloadCertificateBtns?.forEach(btn => {
+    btn.addEventListener('click', downloadImage);
   });
 
-  // Закрытие при клике на оверлей
-  overlay.addEventListener('click', () => {
-    burger.classList.remove('active');
-    nav.classList.remove('active');
-    overlay.classList.remove('active');
-    document.body.classList.remove('no-scroll');
-    setTimeout(() => overlay.style.display = 'none', 300);
-  });
+  burgerModal()
+
+  sliders()
+  Gallery()
+
+  new DropdownManager(dropdownItems);
+
+  form();
 
 
-  const options: SwiperOptions = {
-    slidesPerView: "auto",
-    loop: true, // Бесконечный слайдер
-    centeredSlides: false,
-    spaceBetween: 15,
-    grabCursor: true, // Курсор-рука при наведении
-    // freeMode: true,
-    resistance: true, // Сопротивление при прокрутке
-    resistanceRatio: 0.85,
-
-    breakpoints: {
-      1400: {
-        slidesPerView: 4
-      }
-    }
-  }
-  new Swiper('.products-slider', options)
 
 
 });

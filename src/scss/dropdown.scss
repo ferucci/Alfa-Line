@@ -1,0 +1,95 @@
+@use 'vars' as *;
+@use 'mixins' as mixin;
+
+.faq {
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__title {
+    margin-bottom: clamp(2.8rem, 4vw, 4.8rem);
+    text-transform: uppercase;
+  }
+
+  &__item-title {
+    font-size: clamp(0.9rem, 2.5vw, 1.12rem);
+    font-weight: 600;
+    line-height: 120%;
+    display: block;
+    text-align: start;
+    padding: 1rem 2rem 1rem 0;
+    width: 100%;
+    transition: all 0.3s ease;
+    border-top: 3px solid $color-secondary;
+    border-bottom: 3px solid $color-secondary;
+    background: none;
+    border-left: none;
+    border-right: none;
+    cursor: pointer;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      width: 15px;
+      height: 2px;
+      background-color: $color-primary;
+      transition: transform 0.3s ease;
+    }
+
+    &::before {
+      transform: translateY(-50%) rotate(90deg);
+    }
+
+    &::after {
+      transform: translateY(-50%);
+    }
+
+    &.active {
+      &::before {
+        transform: translateY(-50%) rotate(45deg);
+      }
+
+      &::after {
+        transform: translateY(-50%) rotate(-45deg);
+      }
+    }
+
+    &:hover {
+      background-color: rgba($color-secondary, 0.1);
+    }
+
+    &.active {
+      border-bottom-color: transparent; // Убираем двойную границу при открытии
+    }
+  }
+}
+
+.dropdown {
+  &__item {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, padding 0.3s ease;
+    padding: 0 20px;
+
+    &.show {
+      padding: 15px 20px;
+    }
+  }
+
+  &__text {
+    font-size: clamp(0.66rem, 1.5vw, 1rem);
+    line-height: 140%;
+    opacity: 0;
+    transition: opacity 0.3s ease 0.2s; // 
+
+    .show & {
+      opacity: 1;
+    }
+  }
+}
