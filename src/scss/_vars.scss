@@ -1,6 +1,8 @@
 $color-primary: rgb(24, 198, 172);
-$color-primary-dark: rgba(10, 167, 142, 1);
+$color-primary-hover: rgb(15, 165, 143);
+$color-primary-dark: rgb(10, 167, 142);
 $color-secondary: rgb(0, 118, 139);
+$color-secondary-hover: rgb(0, 98, 115);
 $color-white: rgb(255, 255, 255);
 $color-text: rgb(14, 56, 59);
 $color-desc-text: rgba(131, 143, 141, 1);
@@ -9,7 +11,7 @@ $color-button-light-bg: rgba($color-primary, 0.2);
 
 $border-radius-sm: 1rem;
 
-$fs-text: clamp(0.7rem, 1.8vw, 1.12rem);
+$fs-text: clamp(0.7rem, 1.3vw, 1.13rem);
 $fs-title: clamp(1.07rem, 3vw, 1.38rem);
 
 // adaptive
@@ -18,7 +20,7 @@ $tablets: 768px;
 $large: 1200px;
 $container: 1600px;
 
-// Grid positions
+// Grid positions hero screen
 $items-positions: (
   desktop: (1: (row: 1, column: 1),
     2: (row: 2, column: 1, mw: 16rem),

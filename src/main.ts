@@ -1,9 +1,11 @@
+import { animation } from './typescript/animation';
+import { BackgroundCanvas } from './typescript/animation/canvas';
 import { burgerModal } from './typescript/burger';
 import { downloadImage } from './typescript/downloadDocs';
 import { DropdownManager } from './typescript/dropdown';
 import { Gallery } from './typescript/gallery';
 import { sliders } from './typescript/sliders';
-import { form } from './typescript/validForm';
+import { FormManager } from './typescript/validForm';
 import { vars } from './typescript/vars';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -20,9 +22,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   new DropdownManager(dropdownItems);
 
-  form();
+  // Инициализация FormManager
+  const formManager = new FormManager({
+    formId: "contactForm", // ID основной формы
+    modalFormId: "modalForm", // ID формы в модальном окне
+    successPopupId: "successPopup", // ID попапа успеха
+    formPopupId: "formPopup" // ID попапа с формой
+  });
 
+  // открытие формы в модалке
+  document.querySelectorAll('.header__btn, .mobile-btn').forEach(btn => {
+    btn.addEventListener('click', () => formManager.showPopup("formPopup"));
+  });
 
+  animation()
 
+  new BackgroundCanvas('bgCanvas');
 
 });

@@ -19,7 +19,6 @@ export const Gallery = () => {
 
   // Проверяем, что все необходимые элементы существуют
   if (!galleryOverlay || !galleryImage || !galleryPrev || !galleryNext || !galleryClose) {
-    throw new Error('Один или несколько элементов отстствуют на странице');
     return;
   }
 
@@ -72,6 +71,59 @@ export const Gallery = () => {
         galleryOverlay.style.display = 'flex';
         scrollLock.lock();
       });
+    });
+
+    // Добавляем обработчики hover для половин изображения
+    if (galleryImage) {
+      galleryImage.addEventListener('mousemove', (e: MouseEvent) => {
+        if (!galleryPrev || !galleryNext) return;
+
+        const rect = galleryImage.getBoundingClientRect();
+        const mouseX = e.clientX - rect.left;
+        const halfWidth = rect.width / 2;
+
+        // Левая половина - показываем кнопку "назад"
+        if (mouseX < halfWidth) {
+          galleryPrev.style.opacity = '1';
+          galleryNext.style.opacity = '0.1';
+        }
+        // Правая половина - показываем кнопку "вперед"
+        else {
+          galleryPrev.style.opacity = '0.1';
+          galleryNext.style.opacity = '1';
+        }
+      });
+
+      // При уходе курсора - возвращаем прозрачность
+      galleryImage.addEventListener('mouseleave', () => {
+        if (galleryPrev && galleryNext) {
+          galleryPrev.style.opacity = '0.1';
+          galleryNext.style.opacity = '0.1';
+        }
+      });
+    }
+
+    // Обработчик клика по изображению
+    galleryImage?.addEventListener('click', (e: MouseEvent) => {
+      if (!galleryImage) return;
+
+      // Получаем координаты клика относительно изображения
+      const rect = galleryImage.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const imageWidth = rect.width;
+
+      // Определяем, в какой половине был клик
+      if (clickX < imageWidth / 2) {
+        // Левая половина - предыдущий слайд
+        e.stopPropagation();
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        updateGalleryImage('prev');
+      } else {
+        // Правая половина - следующий слайд
+        e.stopPropagation();
+        currentIndex = (currentIndex + 1) % images.length;
+        updateGalleryImage('next');
+      }
     });
 
     // Навигация

@@ -1,0 +1,100 @@
+@use 'vars' as *;
+@use 'mixins' as mixin;
+
+.vacancies {
+
+  &__title {
+    text-align: start;
+    margin-bottom: clamp(1.5rem, 3vw, 3.5rem);
+  }
+
+  &__tabs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: clamp(2.3rem, 3vw, 4rem);
+
+    @include mixin.respond-to(handhelds) {
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+  }
+
+  &__tab {
+    padding: 1rem 2rem .5rem 0;
+    font-size: clamp(1rem, 2.2vw, 1.22rem);
+    border: none;
+    border-bottom: 1px solid $color-primary;
+    background-color: transparent;
+    width: 45%;
+    white-space: nowrap;
+    /* Запрещаем перенос строк */
+    overflow: hidden;
+    /* Скрываем текст, выходящий за границы */
+    text-overflow: ellipsis;
+    /* Добавляем многоточие */
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+    /* Убираем стандартную стрелку */
+    background-image: url('../images/icons/arrow-down.svg');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+
+    @include mixin.respond-to(handhelds) {
+      border-bottom: 2px solid $color-primary;
+      width: 100%;
+    }
+  }
+
+  &__tab:focus {
+    border-bottom: 2px solid $color-primary;
+  }
+
+  &__tab option {
+    padding: 10px;
+    background: #f8f9fa;
+  }
+
+  @media (hover: hover) {
+    &__tab option:hover {
+      background-color: $color-primary-hover;
+      color: white;
+    }
+  }
+
+  &__content {}
+
+}
+
+.vacancy+.vacancy {
+  margin-top: clamp(.6rem, 2.5vw, 1.22rem);
+}
+
+.vacancy {
+  background-color: $color-white;
+  padding: clamp(1rem, 3vw, 2rem);
+  border-radius: calc($border-radius-sm / 2);
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__info {}
+
+  &__title {
+    @include mixin.titleSmall($fs: clamp(.77rem, 3vw, 1.5rem), $weight: 400, $lh: 30px);
+    margin-bottom: .5rem;
+  }
+
+  &__location {
+    @include mixin.textDescription($fs: clamp(.66rem, 3vw, 1rem))
+  }
+
+  &__action {
+    @include mixin.textDescription($fs: clamp(.77rem, 3vw, 1.38rem));
+    color: $color-primary;
+  }
+}

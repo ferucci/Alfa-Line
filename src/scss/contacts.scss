@@ -1,0 +1,104 @@
+@use 'vars' as *;
+@use 'mixins' as mixin;
+
+
+.contacts-page {
+  .contacts {
+
+    &__inner {
+      display: block;
+      background: transparent;
+    }
+
+    &__title {
+      color: $color-text;
+      text-align: start;
+    }
+
+    &__block {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      justify-content: space-between;
+
+      @include mixin.respond-to(tablet) {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+
+    &__desc {
+      max-width: 50%;
+
+      @include mixin.respond-to(tablet) {
+        max-width: 100%;
+      }
+    }
+
+    &__image {
+      margin-bottom: clamp(3.3rem, 4vw, 5rem);
+
+      img {
+        margin: 0 auto;
+        max-width: 20rem;
+        width: 100%;
+      }
+
+      @include mixin.respond-to(tablet) {
+        margin-bottom: 1rem
+      }
+    }
+
+    &__desc-text {
+      @include mixin.textDescription();
+
+      @include mixin.respond-to(handhelds) {
+        display: none;
+      }
+    }
+
+    &__info {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+
+      @include mixin.respond-to(tablet) {
+        align-items: center;
+        flex: 1 1 100%;
+      }
+    }
+
+    &__address,
+    &__email,
+    &__ident {
+      @include mixin.textDescription($fs: clamp(.8rem, 2.5vw, 1.3rem));
+      line-height: 100%
+    }
+
+    &__tel {
+      @include mixin.titleSmall($fs: clamp(1.12rem, 3vw, 1.88rem), $weight: 700, $lh: 100%)
+    }
+
+    &__address {
+      @include mixin.respond-to(tablet) {
+        max-width: 20rem;
+        text-align: center;
+      }
+    }
+
+    &__email {
+      margin-top: -2rem;
+    }
+
+    &__ident {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      @include mixin.respond-to(tablet) {
+        align-items: center;
+      }
+    }
+
+  }
+}

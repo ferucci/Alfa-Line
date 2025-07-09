@@ -1,0 +1,225 @@
+@use 'vars' as *;
+@use 'mixins' as mixin;
+
+.about {
+  &__inner {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+  }
+
+  &__image {
+    flex: 1 1 50%;
+
+    @include mixin.respond-to(medium-screens) {
+      flex: 1 1 100%;
+    }
+
+    img {
+      margin: 0 auto;
+    }
+  }
+
+  &__desc {
+    flex: 1 1 40%;
+  }
+
+  &__desc-title {
+    @include mixin.titleSmall($fs: clamp(1.25rem, 4vw, 1.58rem), $weight: 700);
+    margin-bottom: 1.3rem;
+  }
+
+  &__desc-text {
+    font-size: $fs-text;
+    line-height: 1.58rem;
+
+    @include mixin.respond-to(tablet) {
+      line-height: 1.3rem;
+    }
+  }
+}
+
+.production {
+
+  &__top {
+    display: flex;
+    border-radius: $border-radius-sm;
+    background-color: $color-primary;
+    color: $color-white;
+    flex-wrap: wrap;
+
+  }
+
+  &__desc {
+    flex: 1 1 50%;
+    padding: clamp(2rem, 4vw, 4rem) clamp(1rem, 4vw, 2rem) 4rem
+  }
+
+  &__desc-title {
+    @include mixin.titleSmall();
+    margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+  }
+
+  &__desc-text {
+    @include mixin.textDescription();
+    max-width: 30rem;
+  }
+
+  &__image-block {
+    flex: 1 1 50%;
+
+    @include mixin.respond-to(tablet) {
+      flex: 1 1 100%;
+      order: -1;
+      max-height: 22rem;
+    }
+
+    picture {
+      height: 100%;
+    }
+
+    img {
+      height: 100%;
+      width: 100%;
+      border-radius: $border-radius-sm;
+      overflow: hidden;
+    }
+  }
+
+  &__banner {
+    padding: clamp(1.3rem, 4vw, 2.8rem) clamp(1rem, 4vw, 2rem);
+    border-radius: $border-radius-sm;
+    background-color: $color-white;
+    max-width: 70%;
+    margin: -3rem auto 0 auto;
+    position: relative;
+    z-index: 2;
+
+    p {
+      text-align: center;
+      @include mixin.titleSmall($fs: clamp(.77rem, 2vw, 1.3rem))
+    }
+  }
+}
+
+.pride {
+  &__inner {
+    display: flex;
+    align-items: center;
+    gap: clamp(2rem, 4vw, 4rem);
+
+    @include mixin.respond-to(tablet) {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__image {
+    flex: 1 1 auto;
+
+    picture {
+      width: 100%;
+    }
+
+    img {
+      @include mixin.respond-to(tablet) {
+        width: 100%;
+      }
+    }
+  }
+
+  &__desc {
+    flex: 1 1 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__desc-text {
+    @include mixin.textDescription()
+  }
+
+  &__adv {
+    margin-top: 3.2rem;
+
+    @include mixin.respond-to(medium-screens) {
+      width: auto;
+      margin-top: clamp(1rem, 2vw, 1.6rem);
+      max-width: 100%;
+    }
+
+    // @include mixin.respond-to(handhelds) {
+    //   grid-row: 4;
+    //   grid-column: 1 / span 2;
+    // }
+
+    &-item {
+      font-size: $fs-text;
+      border: 1px solid $color-primary;
+      border-radius: $border-radius-sm * 2;
+      padding: 0.7rem .7rem .7rem 3rem;
+      position: relative;
+
+      &::after {
+        position: absolute;
+        content: "";
+        top: 50%;
+        left: .5rem;
+        transform: translateY(-50%);
+        width: 1.8rem;
+        height: 1.8rem;
+        border-radius: 50%;
+        background-color: $color-primary;
+      }
+
+      &::before {
+        position: absolute;
+        content: "✓";
+        top: 50%;
+        left: 1rem;
+        transform: translateY(-50%);
+        z-index: 1;
+        color: $color-white;
+
+        @include mixin.respond-to(tablet) {
+          left: 1.2rem;
+        }
+      }
+    }
+
+    &-item+&-item {
+      margin-top: clamp(.7rem, 2vw, 1.35rem)
+    }
+  }
+
+  &__banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 3rem;
+
+    background-color: $color-white;
+    border-radius: $border-radius-sm;
+    padding: clamp(1.5rem, 8vw, 2.5rem) clamp(0.8rem, 3vw, 1.5rem);
+
+    @include mixin.respond-to(tablet) {
+      flex-wrap: wrap;
+    }
+
+    // img {
+    //   flex: 1 1 30%;
+    // }
+
+    p {
+      font-size: clamp(0.7rem, 2vw, 1.12rem);
+      line-height: 1.8rem;
+      max-width: 60rem;
+
+      @include mixin.respond-to(tablet) {
+        line-height: 1.2rem;
+        text-align: center;
+      }
+    }
+
+  }
+}

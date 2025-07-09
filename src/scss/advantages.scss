@@ -93,6 +93,8 @@
         margin-left: 0;
         margin-top: -1rem;
         padding-top: 1rem;
+        padding-bottom: 2rem;
+        padding-left: 0;
         border-top-right-radius: 0;
         border-bottom-right-radius: $border-radius-sm;
         border-bottom-left-radius: $border-radius-sm;
@@ -123,6 +125,7 @@
 
     .advantages__item-title {
       font-weight: 400;
+      line-height: 100%;
     }
 
   }
@@ -130,5 +133,28 @@
   &__image {
     position: relative;
     z-index: 2;
+  }
+}
+
+.career-page {
+  .advantages {
+    &__inner {
+      background-color: transparent;
+    }
+
+    &__title {
+      text-align: start;
+      color: $color-text;
+      margin-bottom: clamp(1.5rem, 3vw, 3.5rem);
+    }
+
+    &__item {
+      padding: clamp(1.5rem, 8vw, 2.5rem) clamp(1rem, 6vw, 2rem);
+    }
+
+    &__item-title {
+      color: $color-secondary;
+      font-weight: 600;
+    }
   }
 }

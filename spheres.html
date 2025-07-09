@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Сферы применения</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
+  <link rel="stylesheet" href="/src/scss/main.scss">
+</head>
+
+<body class="spheres-page">
+
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="spheres-1">
+      <path d="M17 27.001V18.001" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+      <path d="M6 31C6 31 8.15625 28 16.7812 28C25.4062 28 29 31 29 31" stroke="currentColor" stroke-width="3"
+        stroke-linecap="round" />
+      <path
+        d="M5.78957 4.84154C7.17994 3.49865 11.1563 5.25927 14.671 8.77399C18.1857 12.2887 19.9079 16.2266 18.5175 17.5695C17.1271 18.9124 13.1508 17.1517 9.63604 13.637C6.12132 10.1223 4.3992 6.18443 5.78957 4.84154Z"
+        stroke="currentColor" stroke-width="3" />
+      <path
+        d="M16.8383 17.7072C18.6328 17.3245 21.039 15.859 23.238 13.66C26.6129 10.2851 28.2216 6.46069 26.8312 5.1178C25.4408 3.77492 21.5779 5.42212 18.2031 8.79694C17.5438 9.45617 16.952 10.1326 16.4367 10.8043"
+        stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+    </symbol>
+  </svg>
+
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="spheres-2">
+      <path
+        d="M23.8603 27.5858L11.4142 15.1397C10.6332 14.3587 10.6332 13.0923 11.4142 12.3113L12.3113 11.4142C13.0923 10.6332 14.3587 10.6332 15.1397 11.4142L27.5858 23.8603C28.3668 24.6413 28.3668 25.9077 27.5858 26.6887L27.1373 27.1373L26.6887 27.5858C25.9077 28.3668 24.6413 28.3668 23.8603 27.5858Z"
+        stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+      <path d="M11 1V5M9 3H13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+      <path d="M3 8V12M1 10H5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+      <path d="M6 22V28M3 25H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+      <path d="M25 3V9M22 6H28" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+    </symbol>
+  </svg>
+
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="spheres-3">
+      <path
+        d="M24.2902 21.5476C22.0446 20.4977 20.4032 19.7202 19.2138 19.1506C18.3248 18.725 17.3499 19.73 17.8113 20.6024L20.537 25.7559C21.1401 26.8963 21.8528 28.0578 23.0062 28.6322C26.0717 30.1591 28.8982 27.5002 27.6963 24.4449C27.1328 23.0126 25.6826 22.1985 24.2902 21.5476Z"
+        stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+      <path
+        d="M10.5919 15.8519L4.65196 8.81176C4.09836 8.15563 3.23474 8.47196 3.23421 9.33101L3.22855 18.486C3.22789 19.5477 3.27172 20.6682 3.84885 21.5586C6.22635 25.2268 12.941 23.0812 12.1058 18.5185C11.9196 17.5013 11.2584 16.6418 10.5919 15.8519Z"
+        stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+      <path
+        d="M20.7475 3.27021L11.4796 3.22769C10.6208 3.22375 10.3403 4.04195 11.0183 4.56999L17.3509 9.50138C18.6627 10.5229 20.2354 11.5663 21.8248 11.0832C25.4943 9.96802 26.1002 3.61213 20.7475 3.27021Z"
+        stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+    </symbol>
+  </svg>
+
+  <header class="header">
+    <div class="container">
+      <div class="header__inner">
+        <a class="header__logo logo" href="/">
+          <img src="src/images/logo.svg" alt="logo company">
+        </a>
+
+        <button class="header__burger" type="button" aria-label="Меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="header__nav nav">
+          <ul class="nav__list" role='list'>
+            <li class="nav__item">
+              <a href="#" class="nav__link action">Продукция</a>
+            </li>
+            <li class="nav__item">
+              <a href="#" class="nav__link action">Сферы применения</a>
+            </li>
+            <li class="nav__item">
+              <a href="#" class="nav__link action">О компании</a>
+            </li>
+            <li class="nav__item">
+              <a href="#" class="nav__link action">Сертификаты</a>
+            </li>
+            <li class="nav__item">
+              <a href="#" class="nav__link action">Контакты</a>
+            </li>
+            <li class="nav__item">
+              <a href="#" class="nav__link action">Вакансии</a>
+            </li>
+
+            <button class="header__btn action mobile-btn" type="button">
+              Обратный звонок
+            </button>
+          </ul>
+
+        </nav>
+
+        <button class="header__btn action" type="button">
+          Обратный звонок
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="section">
+      <div class="container">
+
+        <div class="spheres-page__inner">
+          <h1 class="spheres-page__title title">
+            Сферы применения ПГМГ
+          </h1>
+
+          <div class="spheres-page__wrapper">
+            <ul class="spheres__list spheres-page__list" role="list">
+
+              <li class="spheres__item">
+                <div class="spheres__item-icon">
+                  <svg width="35" height="35" viewBox="0 0 35 35" fill="none">
+                    <use href="#spheres-1"></use>
+                  </svg>
+                </div>
+                <h3 class="spheres__item-title">
+                  Сельское хозяйство и ветеринария
+                </h3>
+                <ul class="spheres__item-list" role="list">
+                  <li class="spheres__item-text">– Дезинфекция</li>
+                  <li class="spheres__item-text">– Лечение и профилактика</li>
+                  <li class="spheres__item-text">– Защита растений и сохранность урожая</li>
+                </ul>
+                <a href="#" class="spheres__item-btn action">
+                  Подробнее
+                </a>
+              </li>
+
+              <li class="spheres__item">
+                <div class="spheres__item-icon">
+                  <svg width="35" height="35" viewBox="0 0 35 35" fill="none">
+                    <use href="#spheres-2"></use>
+                  </svg>
+                </div>
+                <h3 class="spheres__item-title">
+                  Обеззараживание и
+                  очистка воды
+                </h3>
+                <ul class="spheres__item-list" role="list">
+                  <li class="spheres__item-text">– Очистка воды из рек, озер, прудов</li>
+                  <li class="spheres__item-text">– Очистка воды в бассейнах</li>
+                  <li class="spheres__item-text">– Очистка и доочистка городских сточных вод</li>
+                </ul>
+                <a href="#" class="spheres__item-btn action">
+                  Подробнее
+                </a>
+              </li>
+
+              <li class="spheres__item">
+                <div class="spheres__item-icon">
+                  <svg width="35" height="35" viewBox="0 0 35 35" fill="none">
+                    <use href="#spheres-3"></use>
+                  </svg>
+                </div>
+                <h3 class="spheres__item-title">
+                  Дезинфекция поверхности и инструмента
+                </h3>
+
+                <ul class="spheres__item-list" role="list">
+                  <li class="spheres__item-text">– Медицина </li>
+                  <li class="spheres__item-text">– Учебные заведения</li>
+                  <li class="spheres__item-text">– Предприятия общественного питания и торговли</li>
+                </ul>
+                <a href="#" class="spheres__item-btn action">
+                  Подробнее
+                </a>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section contacts">
+      <div class="container">
+        <div class="contacts__inner">
+          <div class="contacts__top">
+            <h3 class="contacts__title title">Задайте любой интересующий вопрос и мы проконсультируем вас</h3>
+            <p class="contacts__description">
+              В процессе вы сможете оценить наш подход, компетентность и решить, в каком формате мы продолжим дальнейшее
+              сотрудничество
+            </p>
+          </div>
+
+          <!-- Правая секция - форма -->
+          <div class="contacts__form form">
+            <div class="form__inner">
+              <h3 class="form__title">Заполните форму и мы свяжемся с вами в 
+                ближайшее время</h3>
+              <form id="contactForm">
+                <div class="form__item">
+                  <input type="text" id="name" placeholder="Ваше имя" required>
+                  <div id="nameError" class="error-message">Пожалуйста, введите ваше имя</div>
+                </div>
+                <div class="form__item">
+                  <input type="tel" id="phone" class="phone-input" placeholder="(999) 999-99-99" required>
+                  <div id="phoneError" class="error-message">Пожалуйста, введите корректный номер телефона (10 цифр)
+                  </div>
+                </div>
+                <div class="form__item">
+                  <textarea id="message" placeholder="Ваше сообщение"></textarea>
+                </div>
+                <div class="privacy-policy">
+                  <label class="form__checkbox checkbox">
+                    <input type="checkbox" id="privacyCheck" required>
+                    <span class="checkmark"></span>
+                    <div class="checkbox-label">
+                      <span>Нажимая на кнопку «Отправить» вы соглашаетесь с</span> <a href="#">
+                        политикой конфиденциальности
+                      </a>
+                    </div>
+                  </label>
+                  <div id="privacyError" class="error-message">Необходимо ваше согласие</div>
+                </div>
+                <button type="submit" class="form__submit action">Отправить</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner items">
+      <div class="item item-1 footer__logo">
+        <img src="src/images/logo_footer.svg" alt="logo company">
+      </div>
+      <div class="item item-2">
+        <p class="item__desc">
+          AlfaLine - средство, изготовленное на основе высокомолекулярного водорастворимого полимера
+        </p>
+      </div>
+
+      <nav class="footer__nav item item-3 nav">
+        <ul class="nav__list" role='list'>
+          <li class="nav__item">
+            <a href="#" class="nav__link">Продукция</a>
+          </li>
+          <li class="nav__item">
+            <a href="#" class="nav__link">Сферы применения</a>
+          </li>
+          <li class="nav__item">
+            <a href="#" class="nav__link">О компании</a>
+          </li>
+          <li class="nav__item">
+            <a href="#" class="nav__link">Сертификаты</a>
+          </li>
+          <li class="nav__item">
+            <a href="#" class="nav__link">Контакты</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="item item-4">
+        <a href="#" class="phone__link">
+          (3812) 67-61-30
+        </a>
+      </div>
+      <div class="item item-5">
+        <address>
+          Адрес: г. Омск, пр-т Мира, д. 185, корпус 2. 
+        </address>
+        <a href="#" class="email__link">
+          Email: info@alfa-npo.ru
+        </a>
+      </div>
+    </div>
+  </footer>
+  <div class="overlay"></div>
+
+
+  <div class="popup__overlay popup-item" id="successPopup" style="display: none;">
+    <div class="popup__content">
+      <svg class="checkmark" width="120" height="120" viewBox="0 0 120 120" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M91.6667 41L47.3332 85.3335L28.3329 66.3333M117 60C117 91.4802 91.4802 117 60 117C28.5198 117 3 91.4802 3 60C3 28.5198 28.5198 3 60 3C91.4802 3 117 28.5198 117 60Z"
+          stroke="#18C6AC" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+
+      <div class="popup__text">
+        <h4 class="popup__title">Спасибо!</h4>
+        <p class="popup__message">Данные успешно отправлены.</p>
+      </div>
+      <button class="popup__close-btn" id="closePopupBtn">×</button>
+    </div>
+  </div>
+
+  <!-- Попап с формой -->
+  <div class="popup__overlay popup-item" id="formPopup" style="display: none;">
+    <div class="popup__content">
+      <div class="form">
+        <div class="form__inner">
+          <h3 class="form__title">Мы будем рады обсудить <span>
+              сотрудничество
+            </span></h3>
+          <form id="modalForm">
+            <div class="form__item">
+              <input type="text" name="modal-name" placeholder="Ваше имя" required>
+              <div class="error-message">Пожалуйста, введите ваше имя</div>
+            </div>
+            <div class="form__item">
+              <input type="email" name="email" class="email-input" placeholder="E-mail" required>
+              <div class="error-message">Пожалуйста, введите корректный e-mail</div>
+            </div>
+            <div class="form__item">
+              <input type="tel" name="modal-phone" class="phone-input" placeholder="(999) 999-99-99" required>
+              <div class="error-message">Пожалуйста, введите корректный номер телефона (10 цифр)</div>
+            </div>
+            <div class="form__item">
+              <textarea name="modal-message" placeholder="Ваше сообщение"></textarea>
+            </div>
+            <button type="submit" class="form__submit action">Отправить</button>
+          </form>
+        </div>
+      </div>
+      <button class="popup__close-btn" id="closeFormPopupBtn">×</button>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+  <script type="module" src="/src/main.ts">
+  </script>
+</body>
+
+</html>

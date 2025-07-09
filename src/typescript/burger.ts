@@ -38,6 +38,7 @@ export const burgerModal = () => {
     nav.classList.remove('active');
     overlay.classList.remove('active');
     document.body.classList.remove('no-scroll');
+    scrollLock.unlock();
     setTimeout(() => overlay.style.display = 'none', 300);
   });
 }

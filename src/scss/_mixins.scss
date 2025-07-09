@@ -13,12 +13,28 @@
   font-size: $fs;
   line-height: $lh;
   font-weight: $weight;
+
+  @include respond-to(medium-screens) {
+    line-height: calc($lh - 4px);
+  }
+
+  @include respond-to(tablet) {
+    line-height: calc($lh - 7px);
+  }
 }
 
 @mixin textDescription($fs: $fs-text, $weight: 400) {
   font-size: $fs;
-  line-height: 21px;
+  line-height: 26px;
   font-weight: $weight;
+
+  @include respond-to(medium-screens) {
+    line-height: 21px;
+  }
+
+  @include respond-to(handhelds) {
+    line-height: 14px;
+  }
 }
 
 @mixin respond-to($media) {

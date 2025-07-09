@@ -27,6 +27,15 @@
     border-radius: 50%;
     height: 70px;
     width: 70px;
+
+    @include mixin.respond-to(tablet) {
+      height: 50px;
+      width: 50px;
+
+      svg {
+        height: 20px;
+      }
+    }
   }
 
   &__item {
@@ -55,6 +64,15 @@
     }
   }
 
+  &__item-text {
+    font-size: clamp(.66rem, 2vw, 1rem);
+    line-height: 1.58rem;
+
+    @include mixin.respond-to(tablet) {
+      line-height: 19px;
+    }
+  }
+
   &__item-list {
     display: flex;
     flex-direction: column;
@@ -68,5 +86,79 @@
     font-size: clamp(.66rem, 3vw, 1rem);
     max-width: 70%;
     margin-top: auto;
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: $color-secondary-hover;
+      }
+    }
+  }
+}
+
+.spheres-page {
+  &__inner {
+    margin-top: clamp(2rem, 4vw, 3.5rem);
+  }
+
+  &__title {
+    margin-bottom: clamp(1.5rem, 4vw, 3.5rem);
+  }
+
+  &__list {
+    gap: 1rem;
+
+    @include mixin.respond-to(medium-screens) {
+      flex-wrap: wrap;
+    }
+  }
+
+  .spheres {
+
+    &__item {
+      max-width: calc(50% - .5rem);
+      min-width: auto;
+      background-color: $color-secondary;
+
+      @include mixin.respond-to(tablet) {
+        max-width: 100%;
+      }
+
+      &-title,
+      &-text {
+        color: $color-white;
+      }
+
+      &-btn {
+        background-color: $color-white;
+        color: $color-secondary;
+
+        @media (hover: hover) {
+          &:hover {
+            background-color: transparent;
+            border: 2px solid $color-white;
+            color: $color-white;
+          }
+        }
+      }
+    }
+
+    &__item-icon {
+      background-color: $color-white;
+
+      svg {
+        color: $color-secondary;
+      }
+
+    }
+  }
+}
+
+.about-page {
+
+  .spheres {
+    &__inner {
+      background-color: transparent;
+      padding: 2rem 0 0 0;
+    }
   }
 }

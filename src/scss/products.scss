@@ -112,9 +112,20 @@
   }
 
   &__desc {
-    @include mixin.textDescription();
+    font-size: clamp(0.5rem, 1.8vw, .88rem);
+    font-weight: 500;
+    line-height: 21px;
     color: $color-desc-text;
     flex-grow: 1;
+
+    @include mixin.respond-to(medium-screens) {
+      line-height: 17px;
+    }
+
+
+    @include mixin.respond-to(handhelds) {
+      line-height: 10px;
+    }
   }
 
   &__btn {
@@ -122,5 +133,318 @@
     color: $color-white;
     font-size: clamp(.66rem, 3vw, 1rem);
     width: 100%;
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: $color-primary-hover;
+      }
+    }
   }
+}
+
+.products-page {
+  &__inner {
+    margin-top: clamp(2rem, 4vw, 3.5rem);
+  }
+
+  &__title {
+    margin-bottom: clamp(1.5rem, 4vw, 3.5rem);
+  }
+
+  &__list {
+    display: flex;
+    gap: clamp(1.3rem, 4vw, 3rem) 1rem;
+
+    @include mixin.respond-to(medium-screens) {
+      flex-direction: column;
+    }
+  }
+
+  &__item {
+    width: 100%;
+    flex-grow: 1;
+
+    &-desc {
+      font-size: clamp(0.4rem, 1.8vw, .7rem);
+      line-height: 100%;
+      font-weight: 500;
+      text-wrap: nowrap;
+      color: $color-secondary;
+
+      padding: clamp(.44rem, 2vw, .77rem) .5rem;
+      background-color: rgba(198, 240, 234, 1);
+      border-radius: $border-radius-sm;
+      position: absolute;
+      top: -1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  .product {
+    flex-direction: initial;
+    align-items: stretch;
+    position: relative;
+
+    &__content {
+      gap: 1.5rem;
+      padding: 1rem 1rem 1rem 0;
+
+      @include mixin.respond-to(handhelds) {
+        gap: 1rem;
+        padding: 1rem 0;
+      }
+
+      &__desc {
+        color: rgba(131, 143, 141, 1);
+      }
+    }
+
+    &__image-container {
+      flex-basis: 100%;
+      max-height: 100%;
+      max-width: 35%;
+      position: relative;
+      min-width: 8rem;
+
+      @include mixin.respond-to(medium-screens) {
+        flex-basis: 50%;
+        max-width: 100%;
+      }
+
+      @include mixin.respond-to(tablet) {
+        flex-basis: 70%;
+      }
+
+      @include mixin.respond-to(handhelds) {
+        flex-basis: 100%;
+      }
+    }
+
+    &__image {
+      object-fit: cover;
+    }
+
+    &__desc {
+      max-width: 95%;
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      @include mixin.respond-to(medium-screens) {
+        max-width: 65%;
+      }
+
+      @include mixin.respond-to(handhelds) {
+        max-width: 100%;
+      }
+    }
+
+    &__btn {
+      max-width: 50%;
+
+      @include mixin.respond-to(medium-screens) {
+        position: absolute;
+        bottom: 1rem;
+        right: 1rem;
+        max-width: 25%;
+      }
+
+      @include mixin.respond-to(tablet) {
+        height: 2.5rem;
+      }
+
+      @include mixin.respond-to(handhelds) {
+        position: static;
+        max-width: 75%;
+        height: 2rem;
+      }
+    }
+  }
+}
+
+.product-page {
+
+  .product-item {
+    &__inner {
+      margin-top: clamp(2rem, 4vw, 3.5rem);
+    }
+
+    &__title {
+      margin-bottom: clamp(1.5rem, 4vw, 3.5rem);
+    }
+
+    &__wrapper {
+      display: flex;
+      gap: 1rem;
+
+      @include mixin.respond-to(tablet) {
+        flex-wrap: wrap;
+        gap: 2rem;
+      }
+    }
+
+    &__slider {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__main-image {
+      border-radius: 1rem;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+
+        @include mixin.respond-to(tablet) {
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+
+      @include mixin.respond-to(tablet) {
+        max-height: 20rem;
+      }
+
+    }
+
+    &__thumbnails {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+      overflow-x: auto;
+
+      img {
+        width: auto;
+        max-width: 8rem;
+        height: 5rem;
+        object-fit: cover;
+        opacity: .5;
+        object-fit: contain;
+        cursor: pointer;
+        flex-shrink: 0;
+        border-radius: $border-radius-sm;
+      }
+
+      img:hover,
+      img.active {
+        opacity: 1;
+      }
+    }
+
+    &__description {
+      padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1rem, 3vw, 2.8rem);
+      background-color: rgba(248, 252, 250, 1);
+      border-radius: $border-radius-sm;
+
+      &-title {
+        @include mixin.titleSmall($fs: clamp(1.1rem, 1.8vw, 1.6rem), $weight: 700, $lh: 100%);
+        color: $color-secondary;
+        margin-bottom: clamp(1.3rem, 4vw, 2.3rem);
+
+        @include mixin.respond-to(handhelds) {
+          text-align: start;
+        }
+      }
+
+      &-text {
+        @include mixin.textDescription();
+      }
+
+      &-text p {
+        margin-bottom: 1rem;
+      }
+    }
+
+    &__options {
+      margin-bottom: 1.7rem;
+    }
+
+    &__options-vol {
+      h3 {
+        @include mixin.textDescription($weight: 600);
+        margin-bottom: .5rem
+      }
+
+      span {
+        @include mixin.textDescription();
+      }
+    }
+
+    &__docs {
+      display: flex;
+      gap: clamp(1.07rem, 3vw, 1.8rem) 1.3rem;
+      flex-wrap: wrap;
+      margin-bottom: clamp(2rem, 5vw, 3rem);
+
+      &-item {
+        flex: 1 1 calc(50% - 1rem);
+        padding: clamp(0.8rem, 2vw, 1.2rem);
+        background-color: $color-white;
+        border-radius: $border-radius-sm;
+        padding-left: 4rem;
+        position: relative;
+        min-width: 0;
+
+        &::after {
+          content: '';
+          position: absolute;
+          width: 1.6rem;
+          height: 2rem;
+          background-image: url('../images/icons/pdf-icon.svg');
+          background-repeat: no-repeat;
+          top: 50%;
+          transform: translateY(-50%);
+          left: 1.5rem;
+
+          @include mixin.respond-to(tablet) {
+            background-image: url('../images/icons/pdf-icon-small.svg');
+            width: .88rem;
+            height: 1.2rem;
+            left: .8rem;
+          }
+        }
+
+        @include mixin.respond-to(tablet) {
+          padding-left: 2.2rem;
+        }
+      }
+
+      &-title {
+        @include mixin.textDescription($fs: clamp(.5rem, 2vw, .7rem));
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+        display: block;
+      }
+    }
+
+    &__submit {
+      background-color: rgb(24, 198, 172);
+      color: rgb(255, 255, 255);
+      font-size: clamp(0.66rem, 3vw, 1rem);
+      max-width: 50%;
+      width: 100%;
+
+      @include mixin.respond-to(handhelds) {
+        max-width: 100%;
+      }
+
+
+      @media (hover: hover) {
+        &:hover {
+          background-color: $color-primary-hover;
+        }
+      }
+    }
+  }
+
+
+
 }

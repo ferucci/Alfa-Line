@@ -2,6 +2,7 @@
 @use 'reset';
 @use 'global';
 @use 'mixins' as mixin;
+@use 'animate';
 
 @use 'header';
 @use 'footer';
@@ -15,6 +16,12 @@
 @use 'docs';
 @use 'dropdown';
 @use 'form';
+@use 'applying';
+@use 'about';
+@use 'contacts';
+@use 'career';
+@use 'popups';
+
 
 body {
   display: flex;
@@ -66,6 +73,14 @@ $padding-x: clamp(.7rem, 2vw, 1.22rem);
 
     header & {
       background-color: $color-button-light-bg;
+      text-align: start;
+
+      @media (hover: hover) {
+        &:hover {
+          background-color: rgba($color-button-light-bg, 0.4);
+        }
+      }
+
     }
   }
 }

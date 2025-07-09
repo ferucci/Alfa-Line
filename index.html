@@ -172,7 +172,7 @@
 
         </nav>
 
-        <button class="header__btn action" type="button">
+        <button class="header__btn action" type="button" id="showModalForm">
           Обратный звонок
         </button>
       </div>
@@ -180,10 +180,11 @@
   </header>
 
   <main class="main">
+
     <section class="section hero">
       <div class="container">
         <div class="hero__inner">
-          <h1 class="hero__title title">
+          <h1 class="hero__title title animate animate-show-left">
             AlfaLine - средство, изготовленное на основе высокомолекулярного водорастворимого </br> полимера
           </h1>
 
@@ -191,7 +192,6 @@
             <source media="(max-width: 576px)" srcset="/src/images/hero-small-screen.png">
             <source media="(max-width: 1200px)" srcset="/src/images/hero-medium-screen.png">
             <source media="(min-width: 1201px)" srcset="/src/images/hero-large-screen.png">
-
 
             <img src="/src/images/hero-large-screen.jpg" alt="">
           </picture>
@@ -208,10 +208,10 @@
           </div>
 
           <div class="hero__adv">
-            <ul class="hero__adv-list">
-              <li class="hero__adv-item">Широкий спектр применения средства </li>
-              <li class="hero__adv-item">Простота в эксплуатации и хранении </li>
-              <li class="hero__adv-item">Смешивается с водой в любых соотношениях</li>
+            <ul class="hero__adv-list animate">
+              <li class="hero__adv-item animate-show-left">Широкий спектр применения средства </li>
+              <li class="hero__adv-item animate-show-left">Простота в эксплуатации и хранении </li>
+              <li class="hero__adv-item animate-show-left">Смешивается с водой в любых соотношениях</li>
             </ul>
           </div>
         </div>
@@ -221,13 +221,13 @@
     </section>
 
     <section class="section advantages">
-
+      <canvas id="bgCanvas"></canvas>
       <div class="advantages__inner section">
         <div class="container">
           <h2 class="title advantages__title">
             Почему ПГМГ пользуется большим спросом?
           </h2>
-          <ul class="advantages__list" role="list">
+          <ul class="advantages__list animate" role="list">
             <li class="advantages__item">
               <div class="advantages__item-icon">
                 <svg class="main-svg" width="46" height="46" viewBox="0 0 46 46">
@@ -273,7 +273,7 @@
             </li>
             <li class="advantages__item">
               <div class="advantages__item-icon">
-                <svg class="main-svg" width="46" height="46" viewBox="0 0 46 46">
+                <svg class="main-svg" width="46" height="54" viewBox="0 0 46 54">
                   <use href="#adv-4"></use>
                 </svg>
               </div>
@@ -300,7 +300,7 @@
               <img src="/src/images/advantages-image-large.jpg" alt="image alt">
             </picture>
           </div>
-          <div class="advantages__example-items">
+          <div class="advantages__example-items animate">
             <div class="advantages__item">
               <h4 class="advantages__item-title">
                 Бактерицидный и дезинфицирующий эффект обработанным поверхностям
@@ -352,8 +352,8 @@
             </a>
           </div>
           <div class="swiper products-slider">
-            <ul class="swiper-wrapper products__list" role="list">
-              <li class="swiper-slide products__item">
+            <ul class="swiper-wrapper products__list animate" role="list">
+              <li class="swiper-slide products__item animate-show-bottom">
                 <article class="product">
                   <div class="product__image-container">
                     <img class="product__image  swiper-lazy" src="src/images/products/product.png" alt="image product">
@@ -365,13 +365,13 @@
                     <p class="product__desc">
                       Текст описание данного пункта. Можно будет просто расширить словами для seo-оптимизации сайта
                     </p>
-                    <a href="#" class="product__btn action">
+                    <a href="#" class="product__btn action alarm-btn">
                       Подробнее
                     </a>
                   </div>
                 </article>
               </li>
-              <li class="swiper-slide products__item">
+              <li class="swiper-slide products__item animate-show-bottom">
                 <article class="product">
                   <div class="product__image-container">
                     <img class="product__image  swiper-lazy" src="src/images/products/product.png" alt="image product">
@@ -390,7 +390,7 @@
                   </div>
                 </article>
               </li>
-              <li class="swiper-slide products__item">
+              <li class="swiper-slide products__item animate-show-bottom">
                 <article class="product">
                   <div class="product__image-container">
                     <img class="product__image  swiper-lazy" src="src/images/products/product.png" alt="image product">
@@ -408,7 +408,7 @@
                   </div>
                 </article>
               </li>
-              <li class="swiper-slide products__item">
+              <li class="swiper-slide products__item animate-show-bottom">
                 <article class="product">
                   <div class="product__image-container">
                     <img class="product__image  swiper-lazy" src="src/images/products/product.png" alt="image product">
@@ -426,7 +426,7 @@
                   </div>
                 </article>
               </li>
-              <li class="swiper-slide products__item">
+              <li class="swiper-slide products__item animate-show-bottom">
                 <article class="product">
                   <div class="product__image-container">
                     <img class="product__image  swiper-lazy" src="src/images/products/product.png" alt="image product">
@@ -457,9 +457,9 @@
             Почему ПГМГ пользуется большим спросом?
           </h2>
           <div class="spheres-slider swiper">
-            <ul class="spheres__list swiper-wrapper" role="list">
+            <ul class="spheres__list swiper-wrapper animate" role="list">
 
-              <li class="spheres__item swiper-slide">
+              <li class="spheres__item swiper-slide animate-show-right">
                 <div class="spheres__item-icon">
                   <svg width="35" height="35" viewBox="0 0 35 35" fill="none">
                     <use href="#spheres-1"></use>
@@ -478,7 +478,7 @@
                 </a>
               </li>
 
-              <li class="spheres__item swiper-slide">
+              <li class="spheres__item swiper-slide animate-show-right">
                 <div class="spheres__item-icon">
                   <svg width="35" height="35" viewBox="0 0 35 35" fill="none">
                     <use href="#spheres-1"></use>
@@ -498,7 +498,7 @@
                 </a>
               </li>
 
-              <li class="spheres__item swiper-slide">
+              <li class="spheres__item swiper-slide animate-show-right">
                 <div class="spheres__item-icon">
                   <svg width="35" height="35" viewBox="0 0 35 35" fill="none">
                     <use href="#spheres-1"></use>
@@ -531,7 +531,7 @@
           <h3 class="features__title title">
             Почему выбирают нас
           </h3>
-          <div class="features__items">
+          <div class="features__items animate">
             <article class="features__item logo">
               <img src="src/images/logo.svg" alt="">
             </article>
@@ -588,7 +588,7 @@
 
     <section class="section partners">
       <div class="container">
-        <ul class="partners__list" role="list">
+        <ul class="partners__list animate-show-left  animate" role="list">
           <li class="partners__item">
             <div>
               <img src="src/images/partners/1653962097-partnerlogos_c-3.svg.png" alt="">
@@ -620,11 +620,11 @@
             Имеем всю необходимую сертификацию
           </h3>
           <div class="docs-slider swiper">
-            <ul class="docs__list swiper-wrapper" role="list">
+            <ul class="docs__list swiper-wrapper animate" role="list">
 
-              <li class="docs__item certificate-card swiper-slide">
+              <li class="docs__item certificate-card swiper-slide animate-show-bottom">
                 <div class="certificate-card__image">
-                  <img src="src/images/sertificates/certificate-example.png" alt="Сертификат" class="certificate-image">
+                  <img class="certificate-image" src="src/images/sertificates/certificate-example.png" alt="Сертификат">
                   <button class="download-button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                       stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -634,13 +634,13 @@
                     </svg>
                   </button>
                 </div>
-                <div class="certificate-description">
+                <div class="certificate-card__desc">
                   <p>Название сертификата обычно очень длинное, поэтому места побольше оставил</p>
                 </div>
               </li>
-              <li class="docs__item certificate-card swiper-slide">
+              <li class="docs__item certificate-card swiper-slide animate-show-bottom">
                 <div class="certificate-card__image">
-                  <img src="src/images/sertificates/certificate-example.png" alt="Сертификат" class="certificate-image">
+                  <img class="certificate-image" src="src/images/sertificates/certificate-example.png" alt="Сертификат">
                   <button class="download-button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                       stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -650,13 +650,13 @@
                     </svg>
                   </button>
                 </div>
-                <div class="certificate-description">
+                <div class="certificate-card__desc">
                   <p>Название сертификата обычно очень длинное, поэтому места побольше оставил</p>
                 </div>
               </li>
-              <li class="docs__item certificate-card swiper-slide">
+              <li class="docs__item certificate-card swiper-slide animate-show-bottom">
                 <div class="certificate-card__image">
-                  <img src="src/images/sertificates/certificate-example.png" alt="Сертификат" class="certificate-image">
+                  <img class="certificate-image" src="src/images/sertificates/certificate-example.png" alt="Сертификат">
                   <button class="download-button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                       stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -666,13 +666,13 @@
                     </svg>
                   </button>
                 </div>
-                <div class="certificate-description">
+                <div class="certificate-card__desc">
                   <p>Название сертификата обычно очень длинное, поэтому места побольше оставил</p>
                 </div>
               </li>
-              <li class="docs__item certificate-card swiper-slide">
+              <li class="docs__item certificate-card swiper-slide animate-show-bottom">
                 <div class="certificate-card__image">
-                  <img src="src/images/sertificates/certificate-example.png" alt="Сертификат" class="certificate-image">
+                  <img class="certificate-image" src="src/images/sertificates/certificate-example.png" alt="Сертификат">
                   <button class="download-button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                       stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -682,13 +682,13 @@
                     </svg>
                   </button>
                 </div>
-                <div class="certificate-description">
+                <div class="certificate-card__desc">
                   <p>Название сертификата обычно очень длинное, поэтому места побольше оставил</p>
                 </div>
               </li>
-              <li class="docs__item certificate-card swiper-slide">
+              <li class="docs__item certificate-card swiper-slide animate-show-bottom">
                 <div class="certificate-card__image">
-                  <img src="src/images/sertificates/certificate-example.png" alt="Сертификат" class="certificate-image">
+                  <img class="certificate-image" src="src/images/sertificates/certificate-example.png" alt="Сертификат">
                   <button class="download-button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                       stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -698,32 +698,33 @@
                     </svg>
                   </button>
                 </div>
-                <div class="certificate-description">
+                <div class="certificate-card__desc">
                   <p>Название сертификата обычно очень длинное, поэтому места побольше оставил</p>
                 </div>
               </li>
+
 
             </ul>
           </div>
-          <!-- галлерея  -->
-          <div class="gallery-overlay" id="galleryOverlay">
-            <div class="gallery-content">
-              <img class="gallery-image" id="galleryImage" src="" alt="">
-              <div class="gallery-nav">
-                <button class="gallery-button" id="galleryPrev">
+
+          <div class="gallery__overlay" id="galleryOverlay">
+            <div class="gallery__content">
+              <img class="gallery__image" id="galleryImage" src="" alt="">
+              <div class="gallery__nav">
+                <button class="gallery__button" id="galleryPrev">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M15 18l-6-6 6-6" />
                   </svg>
                 </button>
-                <button class="gallery-button" id="galleryNext">
+                <button class="gallery__button" id="galleryNext">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M9 18l6-6-6-6" />
                   </svg>
                 </button>
               </div>
-              <button class="gallery-close" id="galleryClose">
+              <button class="gallery__close" id="galleryClose">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M18 6L6 18M6 6l12 12" />
@@ -731,7 +732,7 @@
               </button>
             </div>
           </div>
-          <!-- ------------  -->
+
         </div>
 
       </div>
@@ -794,7 +795,6 @@
             </p>
           </div>
 
-          <!-- Правая секция - форма -->
           <div class="contacts__form form">
             <div class="form__inner">
               <h3 class="form__title">Заполните форму и мы свяжемся с вами в 
@@ -831,6 +831,7 @@
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="footer">
@@ -880,6 +881,59 @@
     </div>
   </footer>
   <div class="overlay"></div>
+
+  <div class="popup__overlay popup-item" id="successPopup" style="display: none;">
+    <div class="popup__content">
+      <svg class="checkmark" width="120" height="120" viewBox="0 0 120 120" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M91.6667 41L47.3332 85.3335L28.3329 66.3333M117 60C117 91.4802 91.4802 117 60 117C28.5198 117 3 91.4802 3 60C3 28.5198 28.5198 3 60 3C91.4802 3 117 28.5198 117 60Z"
+          stroke="#18C6AC" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+
+      <div class="popup__text">
+        <h4 class="popup__title">Спасибо!</h4>
+        <p class="popup__message">Данные успешно отправлены.</p>
+      </div>
+      <button class="popup__close-btn" id="closePopupBtn">×</button>
+    </div>
+  </div>
+
+  <!-- Попап с формой -->
+  <div class="popup__overlay popup-item" id="formPopup" style="display: none;">
+    <div class="popup__content">
+      <div class="form">
+        <div class="form__inner">
+          <h3 class="form__title">Мы будем рады обсудить
+            <span>
+              сотрудничество
+            </span>
+          </h3>
+          <form id="modalForm">
+            <div class="form__item">
+              <input type="text" name="modal-name" placeholder="Ваше имя" required>
+              <div class="error-message">Пожалуйста, введите ваше имя</div>
+            </div>
+
+            <div class="form__item">
+              <input type="email" name="email" class="email-input" placeholder="E-mail" required>
+              <div class="error-message">Пожалуйста, введите корректный e-mail</div>
+            </div>
+
+            <div class="form__item">
+              <input type="tel" name="modal-phone" class="phone-input" placeholder="(999) 999-99-99" required>
+              <div class="error-message">Пожалуйста, введите корректный номер телефона (10 цифр)</div>
+            </div>
+            <div class="form__item">
+              <textarea name="modal-message" placeholder="Ваше сообщение"></textarea>
+            </div>
+            <button type="submit" class="form__submit action">Отправить</button>
+          </form>
+        </div>
+      </div>
+      <button class="popup__close-btn" id="closeFormPopupBtn">×</button>
+    </div>
+  </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
   <script type="module" src="/src/main.ts">
