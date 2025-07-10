@@ -1,12 +1,11 @@
-import { defineConfig } from 'vite';
+import { defineConfig, mergeConfig } from 'vite';
+import baseConfig from './vite.base.config';
+import devConfig from './vite.dev.config';
+import prodConfig from './vite.prod.config';
 
-export default defineConfig({
-  base: './', // Использует относительные пути вместо абсолютных
-  build: {
-    outDir: 'dist',
-    assetsDir: '.', // Ассеты будут рядом с index.html
-  },
-  css: {
-    devSourcemap: true, // Включает source maps для CSS/SCSS в режиме разработки
-  }
+export default defineConfig(({ command }) => {
+  return mergeConfig(
+    baseConfig,
+    command === 'build' ? prodConfig : devConfig
+  );
 });
