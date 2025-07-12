@@ -66,7 +66,7 @@ export class BackgroundCanvas {
   }
 
   private resizeCanvas(): void {
-    this.canvas.width = window.innerWidth;
+    this.canvas.width = window.innerWidth - 160;
     this.canvas.height = window.innerHeight;
   }
 

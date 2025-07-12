@@ -382,6 +382,13 @@
   position: relative;
 }
 
+.production {
+  &__top {
+    position: relative;
+    z-index: 0;
+  }
+}
+
 canvas {
   position: absolute;
   top: 0;

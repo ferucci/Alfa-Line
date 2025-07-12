@@ -21,7 +21,7 @@ export const scrollAnimation = () => {
           const animItemHeight: number = animItem.offsetHeight;
           const animItemOffset: offsetI = offset(animItem);
           const animStart: number = 4;
-          console.log(animItem)
+
           let animItemPoint: number = window.innerHeight - animItemHeight / animStart;
           if (animItemHeight > window.innerHeight) {
             animItemPoint = window.innerHeight - window.innerHeight / animStart;
