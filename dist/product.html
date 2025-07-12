@@ -14,7 +14,7 @@
     href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
-  <script src="./assets/js/main.B_rYRG-z.js" defer></script>
+  <script src="./assets/js/main.HDQBHWkO.js" defer></script>
   <link rel="stylesheet" href="./assets/css/main.css">
 </head>
 
@@ -36,22 +36,22 @@
         <nav class="header__nav nav">
           <ul class="nav__list" role='list'>
             <li class="nav__item">
-              <a href="#" class="nav__link action">Продукция</a>
+              <a href="products.html" class="nav__link action">Продукция</a>
             </li>
             <li class="nav__item">
-              <a href="#" class="nav__link action">Сферы применения</a>
+              <a href="spheres.html" class="nav__link action">Сферы применения</a>
             </li>
             <li class="nav__item">
-              <a href="#" class="nav__link action">О компании</a>
+              <a href="about.html" class="nav__link action">О компании</a>
             </li>
             <li class="nav__item">
-              <a href="#" class="nav__link action">Сертификаты</a>
+              <a href="docs.html" class="nav__link action">Сертификаты</a>
             </li>
             <li class="nav__item">
-              <a href="#" class="nav__link action">Контакты</a>
+              <a href="contacts.html" class="nav__link action">Контакты</a>
             </li>
             <li class="nav__item">
-              <a href="#" class="nav__link action">Вакансии</a>
+              <a href="career.html" class="nav__link action">Вакансии</a>
             </li>
 
             <button class="header__btn action mobile-btn" type="button">
@@ -61,7 +61,7 @@
 
         </nav>
 
-        <button class="header__btn action" type="button">
+        <button class="header__btn action" type="button" id="showModalForm">
           Обратный звонок
         </button>
       </div>
@@ -84,9 +84,9 @@
               </div>
 
               <!-- Миниатюры -->
-              <div class="product-item__thumbnails" id="product-thumbnails">
-                <img src="./assets/images/product.png" alt="alt image">
-                <img src="./assets/images/product.png" alt="alt image">
+              <div class="product-item__thumbnails animate" id="product-thumbnails animate">
+                <img class="animate-show-left" src="./assets/images/product.png" alt="alt image">
+                <img class="animate-show-left" src="./assets/images/product.png" alt="alt image">
               </div>
             </div>
             <div class="product-item__description">
@@ -110,8 +110,8 @@
                   <span>5 литров</span>
                 </div>
               </div>
-              <div class="product-item__docs">
-                <div class="product-item__docs-item">
+              <div class="product-item__docs animate">
+                <div class="product-item__docs-item animate-show-bottom">
                   <h3 class="product-item__docs-title">Наименование документа или </h3>
                   <button class="download-button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -122,7 +122,7 @@
                     </svg>
                   </button>
                 </div>
-                <div class="product-item__docs-item">
+                <div class="product-item__docs-item animate-show-bottom">
                   <h3 class="product-item__docs-title">Наименование документа или </h3>
                   <button class="download-button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -133,7 +133,7 @@
                     </svg>
                   </button>
                 </div>
-                <div class="product-item__docs-item">
+                <div class="product-item__docs-item animate-show-bottom">
                   <h3 class="product-item__docs-title">Наименование документа или </h3>
                   <button class="download-button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -144,7 +144,7 @@
                     </svg>
                   </button>
                 </div>
-                <div class="product-item__docs-item">
+                <div class="product-item__docs-item animate-show-bottom">
                   <h3 class="product-item__docs-title">Наименование документа или </h3>
                   <button class="download-button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -157,7 +157,7 @@
                 </div>
               </div>
 
-              <button class="product-item__submit action" type="submit">Оформить заявку</button>
+              <button class="product-item__submit animate action" type="submit">Оформить заявку</button>
             </div>
           </div>
         </div>
@@ -178,7 +178,7 @@
               </p>
             </div>
             <ul class="applying-cards__list">
-              <li class="applying-cards__item applying-card">
+              <li class="applying-cards__item applying-card animate">
                 <div class="applying-card__item-image">
                   <picture>
                     <source media="(max-width: 576px)" srcset="./assets/images/applying-card-item-small-1.jpg">
@@ -188,7 +188,7 @@
                     <img src="./assets/images/applying-card-item-small-1.jpg" alt="">
                   </picture>
                 </div>
-                <div class="applying-card__item-content">
+                <div class="applying-card__item-content animate-show-right">
                   <h3>Дезинфекция</h3>
                   <p>
                     AlfaLine SAFE D служит альтернативным реагентом в процессе обработки и дезинфекции помещений
@@ -206,9 +206,9 @@
                 </div>
               </li>
 
-              <li class="applying-cards__item applying-card">
+              <li class="applying-cards__item applying-card animate">
 
-                <div class="applying-card__item-content">
+                <div class="applying-card__item-content animate-show-left">
                   <h3>Лечение и профилактика</h3>
                   <p>
                     Для профилактики и лечения болезней птиц рекомендована обработка кормов 1% (по ДВ) раствором
@@ -258,8 +258,8 @@
             </a>
           </div>
           <div class="swiper products-slider">
-            <ul class="swiper-wrapper products__list" role="list">
-              <li class="swiper-slide products__item">
+            <ul class="swiper-wrapper products__list animate" role="list">
+              <li class="swiper-slide products__item animate-show-right">
                 <article class="product">
                   <div class="product__image-container">
                     <img class="product__image  swiper-lazy" src="./assets/images/product.png" alt="image product">
@@ -277,7 +277,7 @@
                   </div>
                 </article>
               </li>
-              <li class="swiper-slide products__item">
+              <li class="swiper-slide products__item animate-show-right">
                 <article class="product">
                   <div class="product__image-container">
                     <img class="product__image  swiper-lazy" src="./assets/images/product.png" alt="image product">
@@ -295,7 +295,6 @@
                   </div>
                 </article>
               </li>
-
             </ul>
           </div>
         </div>

@@ -13,9 +13,8 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
-
-  <script src="./assets/js/main.B_rYRG-z.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
+  <script src="./assets/js/main.HDQBHWkO.js" defer></script>
   <link rel="stylesheet" href="./assets/css/main.css">
 </head>
 
@@ -37,22 +36,22 @@
         <nav class="header__nav nav">
           <ul class="nav__list" role='list'>
             <li class="nav__item">
-              <a href="#" class="nav__link action">Продукция</a>
+              <a href="products.html" class="nav__link action">Продукция</a>
             </li>
             <li class="nav__item">
-              <a href="#" class="nav__link action">Сферы применения</a>
+              <a href="spheres.html" class="nav__link action">Сферы применения</a>
             </li>
             <li class="nav__item">
-              <a href="#" class="nav__link action">О компании</a>
+              <a href="about.html" class="nav__link action">О компании</a>
             </li>
             <li class="nav__item">
-              <a href="#" class="nav__link action">Сертификаты</a>
+              <a href="docs.html" class="nav__link action">Сертификаты</a>
             </li>
             <li class="nav__item">
-              <a href="#" class="nav__link action">Контакты</a>
+              <a href="contacts.html" class="nav__link action">Контакты</a>
             </li>
             <li class="nav__item">
-              <a href="#" class="nav__link action">Вакансии</a>
+              <a href="career.html" class="nav__link action">Вакансии</a>
             </li>
 
             <button class="header__btn action mobile-btn" type="button">
@@ -62,7 +61,7 @@
 
         </nav>
 
-        <button class="header__btn action" type="button">
+        <button class="header__btn action" type="button" id="showModalForm">
           Обратный звонок
         </button>
       </div>
@@ -72,11 +71,15 @@
   <main>
 
     <div class="container">
-      <section class="section not-found-page">
-        <img src="./assets/images/404.png" alt="404">
-        <h1 class="not-found-page__title">
-          Страница не найдена
-        </h1>
+      <section class="section not-found-page animate">
+        <div class="container">
+          <div class="not-found-page__inner animate-show-top">
+            <img src="./assets/images/404.png" alt="404">
+            <h1 class="not-found-page__title">
+              Страница не найдена
+            </h1>
+          </div>
+        </div>
       </section>
     </div>
 
@@ -179,8 +182,7 @@
     </div>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js" defer></script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js" defer></script>
 </body>
 
 </html>

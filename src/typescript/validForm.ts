@@ -17,7 +17,7 @@ interface FormManagerOptions {
   formPopupId?: string;
 }
 
-export class FormManager {
+export class FormsManager {
   private phoneInput: HTMLInputElement | null;
   private phoneInputs: Map<HTMLInputElement, any> = new Map(); // Хранит инстансы iti для каждого поля
   private nameError: HTMLElement | null;

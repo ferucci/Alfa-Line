@@ -1,4 +1,4 @@
-import { animation } from './typescript/animation';
+import { scrollAnimation } from './typescript/animation';
 import { BackgroundCanvas } from './typescript/animation/canvas';
 import { burgerModal } from './typescript/burger';
 import { downloadImage } from './typescript/downloadDocs';
@@ -6,7 +6,7 @@ import { FAQDropdownManager } from './typescript/dropdown';
 import { filterVacancies } from './typescript/filter';
 import { Gallery } from './typescript/gallery';
 import { sliders } from './typescript/sliders';
-import { FormManager } from './typescript/validForm';
+import { FormsManager } from './typescript/validForm';
 import { vars } from './typescript/vars';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
   Gallery()
 
   // Анимация появления элементов при скролле
-  animation()
+  scrollAnimation()
 
   // Фильтрация careers
   filterVacancies();
@@ -36,8 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Треугольники на фоне
   new BackgroundCanvas('bgCanvas');
 
-  // Инициализация FormManager ( обе формы )
-  const formManager = new FormManager({
+  // Инициализация FormsManager ( обе формы )
+  const formManager = new FormsManager({
     formId: "contactForm", // ID основной формы
     modalFormId: "modalForm", // ID формы в модальном окне
     successPopupId: "successPopup", // ID попапа успеха

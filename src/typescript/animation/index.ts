@@ -1,17 +1,16 @@
 interface offsetI { top: number, left: number }
 
-export const animation = () => {
+export const scrollAnimation = () => {
   const animItems: NodeListOf<HTMLElement> = document.querySelectorAll('.animate');
   if (animItems.length > 0) {
     let activeAnimationsCount = 0;
     let scrollHandlerActive = true;
-    let anyAnimationActivated = false;
+
     window.addEventListener('scroll', animOnScroll);
 
     function animOnScroll(): void {
       if (!scrollHandlerActive) return;
       requestAnimationFrame(() => {
-
 
         for (let index = 0; index < animItems.length; index++) {
           const animItem: HTMLElement = animItems[index];
@@ -22,7 +21,7 @@ export const animation = () => {
           const animItemHeight: number = animItem.offsetHeight;
           const animItemOffset: offsetI = offset(animItem);
           const animStart: number = 4;
-
+          console.log(animItem)
           let animItemPoint: number = window.innerHeight - animItemHeight / animStart;
           if (animItemHeight > window.innerHeight) {
             animItemPoint = window.innerHeight - window.innerHeight / animStart;
@@ -31,7 +30,6 @@ export const animation = () => {
           if ((pageYOffset > animItemOffset.top - animItemPoint) && pageYOffset < (animItemOffset.top + animItemHeight)) {
             animItem.classList.add('animate-active');
             activeAnimationsCount++;
-            anyAnimationActivated = true;
 
             if (animItem.querySelectorAll('li')) {
               setTimeout(() => {
