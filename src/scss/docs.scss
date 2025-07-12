@@ -148,7 +148,7 @@
 
   &__button {
     pointer-events: all;
-    background: $color-primary-dark;
+    background: $color-secondary;
     border: none;
     color: white;
     width: clamp(2rem, 3vw, 3rem);
@@ -167,7 +167,7 @@
     position: absolute;
     top: 2rem;
     right: 2rem;
-    background: $color-primary-dark;
+    background: $color-secondary;
     border: none;
     color: white;
     width: clamp(2rem, 3vw, 3rem);

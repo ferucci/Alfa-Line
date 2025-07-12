@@ -1,37 +1,31 @@
+.animate {
+  will-change: opacity, transform;
+
+  // Отключение анимаций при prefers-reduced-motion
+  @media (prefers-reduced-motion: reduce) {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+.animate-show-left,
+.animate-show-bottom,
+.animate-show-right {
+  opacity: 0;
+  transition: opacity 1.8s ease, transform .8s ease;
+}
+
 .animate-show-left {
   transform: translateX(-200%);
-  opacity: 0;
-  transition: all .6s;
-}
-
-.animate-show-bottom {
-  transform: translateY(100%);
-  opacity: 0;
-  transition: all .5s;
-}
-
-.animate-show-bottom.animate-active,
-.animate-active .animate-show-bottom {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.animate-show-left.animate-active,
-.animate-active .animate-show-left {
-  opacity: 1;
-  transform: translateX(0);
 }
 
 .animate-show-right {
-  transform: translateX(100%);
-  opacity: 0;
-  transition: all .9s;
+  transform: translateX(200%);
 }
 
-.animate-show-right.animate-active,
-.animate-active .animate-show-right {
-  opacity: 1;
-  transform: translateX(0);
+.animate-show-bottom {
+  transform: translateY(200%);
 }
 
 .animate-show {
@@ -40,31 +34,42 @@
   transition: all 1.2s;
 }
 
+.animate-show-bottom.animate-active,
+.animate-active .animate-show-bottom,
+.animate-show-left.animate-active,
+.animate-active .animate-show-left,
+.animate-show-right.animate-active,
+.animate-active .animate-show-right,
 .animate-show.animate-active,
 .animate-active .animate-show {
+  transform: translateY(0);
   opacity: 1;
-  transform: translateX(0);
 }
+
+
+@mixin transitionDelay($activeDelay: .5s,
+  $opacityDelay: .5s,
+  $transformDelay: .5s) {
+  transition: opacity $activeDelay ease $opacityDelay, transform $activeDelay ease $transformDelay;
+}
+
 
 // hero
 
 .hero__adv-list {
 
   &.animate-active {
-
     li:nth-child(1) {
-      transition: all .8s ease .2s;
-    }
-
-    li:nth-child(3) {
-      transition: all .8s ease .8s;
+      @include transitionDelay(.8s, .2s, .2s);
     }
 
     li:nth-child(2) {
-      transition: all .8s ease .5s;
+      @include transitionDelay(.8s, .5s, .5s);
     }
 
-
+    li:nth-child(3) {
+      @include transitionDelay(.8s, .8s, .8s);
+    }
   }
 
 }
@@ -77,6 +82,10 @@
 
   &__item {
     transform: scale(0);
+
+    &.animate-active {
+      transform: scale(1);
+    }
   }
 
   &__list,
@@ -84,32 +93,24 @@
     &.animate-active {
 
       .advantages__item:nth-child(1) {
-        transition: all .5s ease .4s;
-      }
-
-      .advantages__item:nth-child(3) {
-        transition: all .5s ease 1.2s;
+        @include transitionDelay(.5s, .4s, .7s);
       }
 
       .advantages__item:nth-child(2) {
-        transition: all .5s ease .7s;
+        @include transitionDelay(.5s, .7s, .9s);
+      }
+
+      .advantages__item:nth-child(3) {
+        @include transitionDelay(.5s, 1.2s, 1.2s);
       }
 
       .advantages__item:nth-child(4) {
-        transition: all .5s ease 1.8s;
+        @include transitionDelay(.5s, 1.8s, 1.9s);
       }
 
       .advantages__item {
         transform: scale(1);
       }
-    }
-  }
-
-  &__item {
-    transition: all .8s ease .8s;
-
-    &.animate-active {
-      transform: scale(1);
     }
   }
 
@@ -123,26 +124,23 @@
   &__list {
     &.animate-active {
       li:nth-child(1) {
-        transition: all .8s ease .2s;
-      }
-
-      li:nth-child(3) {
-        transition: all .8s ease .8s;
+        @include transitionDelay(.8s, .2s, .2s);
       }
 
       li:nth-child(2) {
-        transition: all .8s ease .5s;
+        @include transitionDelay(.8s, .5s, .5s);
+      }
+
+      li:nth-child(3) {
+        @include transitionDelay(.8s, .8s, .8s);
       }
     }
 
     .action {
-      animation: ring 0.15s 5s alternate;
+      animation: ring 0.2s 5s alternate;
     }
   }
 }
-
-/* Анимация "звонит" */
-
 
 @keyframes ring {
 
@@ -168,15 +166,15 @@
 .spheres__list {
   &.animate-active {
     li:nth-child(1) {
-      transition: all .8s ease .2s;
-    }
-
-    li:nth-child(3) {
-      transition: all .8s ease .8s;
+      @include transitionDelay(.8s, .2s, .2s);
     }
 
     li:nth-child(2) {
-      transition: all .8s ease .5s;
+      @include transitionDelay(.8s, .5s, .5s);
+    }
+
+    li:nth-child(3) {
+      @include transitionDelay(.8s, .8s, .8s);
     }
   }
 }
@@ -274,30 +272,23 @@
   &__list {
     &.animate-active {
       li:nth-child(1) {
-        transition: all .8s ease .2s;
-      }
-
-      li:nth-child(3) {
-        transition: all .8s ease .8s;
+        @include transitionDelay(.8s, .2s, .2s);
       }
 
       li:nth-child(2) {
-        transition: all .8s ease .5s;
+        @include transitionDelay(.8s, .5s, .5s);
+      }
+
+      li:nth-child(3) {
+        @include transitionDelay(.8s, .8s, .8s);
       }
 
       li:nth-child(4) {
-        transition: all .8s ease .1s;
+        @include transitionDelay(.8s, .1s, .1s);
       }
     }
   }
 }
-
-
-
-
-
-
-
 
 // canvas 
 .advantages {

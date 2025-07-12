@@ -9,7 +9,7 @@ lerna-debug.log*
 
 node_modules
 # dist
-readMe.txt
+*.txt
 dist-ssr
 *.local
 package-lock.json

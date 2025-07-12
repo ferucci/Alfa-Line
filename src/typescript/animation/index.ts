@@ -1,33 +1,58 @@
-export const animation = () => {
+interface offsetI { top: number, left: number }
 
+export const animation = () => {
   const animItems: NodeListOf<HTMLElement> = document.querySelectorAll('.animate');
   if (animItems.length > 0) {
+    let activeAnimationsCount = 0;
+    let scrollHandlerActive = true;
+
     window.addEventListener('scroll', animOnScroll);
 
     function animOnScroll(): void {
-      for (let index = 0; index < animItems.length; index++) {
-        const animItem: HTMLElement = animItems[index];
-        const animItemHeight: number = animItem.offsetHeight;
-        const animItemOffset: { top: number, left: number } = offset(animItem);
-        const animStart: number = 4;
+      if (!scrollHandlerActive) return;
+      requestAnimationFrame(() => {
+        let anyAnimationActivated = false;
 
-        let animItemPoint: number = window.innerHeight - animItemHeight / animStart;
-        if (animItemHeight > window.innerHeight) {
-          animItemPoint = window.innerHeight - window.innerHeight / animStart;
+        for (let index = 0; index < animItems.length; index++) {
+          const animItem: HTMLElement = animItems[index];
+
+          // Если анимация уже активирована, пропускаем
+          if (animItem.classList.contains('animate-active')) continue;
+
+          const animItemHeight: number = animItem.offsetHeight;
+          const animItemOffset: offsetI = offset(animItem);
+          const animStart: number = 4;
+
+          let animItemPoint: number = window.innerHeight - animItemHeight / animStart;
+          if (animItemHeight > window.innerHeight) {
+            animItemPoint = window.innerHeight - window.innerHeight / animStart;
+          }
+
+          if ((pageYOffset > animItemOffset.top - animItemPoint) && pageYOffset < (animItemOffset.top + animItemHeight)) {
+            animItem.classList.add('animate-active');
+            activeAnimationsCount++;
+            anyAnimationActivated = true;
+
+            if (animItem.querySelectorAll('li')) {
+              setTimeout(() => {
+                const listItems: NodeListOf<HTMLElement> = animItem.querySelectorAll('[data-animate-child]');
+                listItems.forEach(item => {
+                  item.style.transition = 'all .3s ease-in'
+                })
+              }, 1000)
+            }
+          }
         }
 
-        if ((pageYOffset > animItemOffset.top - animItemPoint) && pageYOffset < (animItemOffset.top + animItemHeight)) {
-          animItem.classList.add('animate-active');
+        // Если все анимации активированы, отключаем обработчик скролла
+        if (activeAnimationsCount === animItems.length) {
+          window.removeEventListener('scroll', animOnScroll);
+          scrollHandlerActive = false;
         }
-        // else {
-        //   if (!animItem.classList.contains('animate-no-hide')) {
-        //     animItem.classList.remove('animate-active');
-        //   }
-        // }
-      }
+      });
     }
 
-    function offset(el: HTMLElement): { top: number, left: number } {
+    function offset(el: HTMLElement): offsetI {
       const rect: DOMRect = el.getBoundingClientRect();
       const scrollLeft: number = window.pageXOffset || document.documentElement.scrollLeft;
       const scrollTop: number = window.pageYOffset || document.documentElement.scrollTop;
@@ -38,5 +63,4 @@ export const animation = () => {
       animOnScroll();
     }, 200);
   }
-
 }
