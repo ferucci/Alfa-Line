@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 .animate {
   will-change: opacity, transform;
 
@@ -62,7 +64,7 @@
 
 // Генерация случайных задержек для docs элементов
 @function random-delay($max: 20) {
-  @return random($max) * 0.1+0.2s; // Генерирует задержку от 0.1s до 0.2s (можно настроить)
+  @return math.random($max) * 0.1+0.2s; // Генерирует задержку от 0.1s до 0.2s (можно настроить)
 }
 
 

@@ -96,7 +96,7 @@ a {
   }
 
   &__title {
-    @include mixin.titleSmall($fs: clamp(1rem, 3vw, 2rem));
     color: $color-secondary;
+    @include mixin.titleSmall($fs: clamp(1rem, 3vw, 2rem));
   }
 }

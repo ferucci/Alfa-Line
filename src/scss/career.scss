@@ -92,11 +92,10 @@
     justify-content: space-between;
   }
 
-  &__info {}
-
   &__title {
-    @include mixin.titleSmall($fs: clamp(.77rem, 3vw, 1.5rem), $weight: 400, $lh: 30px);
     margin-bottom: .5rem;
+
+    @include mixin.titleSmall($fs: clamp(.77rem, 3vw, 1.5rem), $weight: 400, $lh: 30px)
   }
 
   &__location {
@@ -104,7 +103,8 @@
   }
 
   &__action {
-    @include mixin.textDescription($fs: clamp(.77rem, 3vw, 1.38rem));
     color: $color-primary;
+
+    @include mixin.textDescription($fs: clamp(.77rem, 3vw, 1.38rem))
   }
 }

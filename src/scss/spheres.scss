@@ -56,8 +56,9 @@
   }
 
   &__item-title {
-    @include mixin.titleSmall(clamp(1.07rem, 3vw, 1.6rem), 600, 36px);
     color: $color-secondary;
+
+    @include mixin.titleSmall(clamp(1.07rem, 3vw, 1.6rem), 600, 36px);
 
     @include mixin.respond-to(tablet) {
       line-height: 100%

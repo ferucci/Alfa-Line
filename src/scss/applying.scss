@@ -80,14 +80,15 @@
     padding: 2rem clamp(2rem, 3vw, 3.3rem);
 
     h3 {
-      @include mixin.titleSmall($weight: 700);
       margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
       color: $color-secondary;
+
+      @include mixin.titleSmall($weight: 700)
     }
 
     p {
-      @include mixin.textDescription();
       margin-bottom: 1rem;
+      @include mixin.textDescription()
     }
 
   }

@@ -71,8 +71,8 @@
     &__address,
     &__email,
     &__ident {
-      @include mixin.textDescription($fs: clamp(.8rem, 2.5vw, 1.3rem));
-      line-height: 100%
+      line-height: 100%;
+      @include mixin.textDescription($fs: clamp(.8rem, 2.5vw, 1.3rem))
     }
 
     &__tel {

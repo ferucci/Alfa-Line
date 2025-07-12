@@ -42,8 +42,8 @@
   }
 
   &__item-desc {
-    @include mixin.textDescription();
     color: $color-desc-text;
+    @include mixin.textDescription()
   }
 
   &__item-accent {

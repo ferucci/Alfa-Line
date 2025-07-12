@@ -5,13 +5,13 @@ export const animation = () => {
   if (animItems.length > 0) {
     let activeAnimationsCount = 0;
     let scrollHandlerActive = true;
-
+    let anyAnimationActivated = false;
     window.addEventListener('scroll', animOnScroll);
 
     function animOnScroll(): void {
       if (!scrollHandlerActive) return;
       requestAnimationFrame(() => {
-        let anyAnimationActivated = false;
+
 
         for (let index = 0; index < animItems.length; index++) {
           const animItem: HTMLElement = animItems[index];

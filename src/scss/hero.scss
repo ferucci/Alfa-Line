@@ -375,9 +375,10 @@ $widthLargePicture: 860px;
       }
 
       .item-desc {
-        @include mixin.textDescription($fs: clamp(0.5rem, 1.3vw, 1.13rem));
         margin-top: .7rem;
         max-width: 20rem;
+
+        @include mixin.textDescription($fs: clamp(0.5rem, 1.3vw, 1.13rem));
 
         @include mixin.respond-to(handhelds) {
           text-align: center;

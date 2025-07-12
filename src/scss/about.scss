@@ -26,8 +26,8 @@
   }
 
   &__desc-title {
-    @include mixin.titleSmall($fs: clamp(1.25rem, 4vw, 1.58rem), $weight: 700);
     margin-bottom: 1.3rem;
+    @include mixin.titleSmall($fs: clamp(1.25rem, 4vw, 1.58rem), $weight: 700)
   }
 
   &__desc-text {
@@ -57,13 +57,15 @@
   }
 
   &__desc-title {
-    @include mixin.titleSmall();
     margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+
+    @include mixin.titleSmall()
   }
 
   &__desc-text {
-    @include mixin.textDescription();
     max-width: 30rem;
+
+    @include mixin.textDescription()
   }
 
   &__image-block {
