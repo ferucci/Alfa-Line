@@ -130,8 +130,9 @@
     transition: transform 0.3s ease, opacity 0.3s ease;
 
     @include mixin.respond-to(handhelds) {
-      object-fit: fill;
+      object-fit: contain;
       max-height: 50vh;
+      max-width: 99vw;
     }
   }
 
