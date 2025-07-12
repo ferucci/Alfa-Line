@@ -25,6 +25,7 @@
 
 .section {
   margin-bottom: clamp(2.5rem, 3vw, 5rem);
+  overflow-x: hidden;
 }
 
 a {

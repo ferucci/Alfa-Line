@@ -28,6 +28,8 @@ export class BackgroundCanvas {
   private triangles: Triangle[] = [];
   private mouseX: number = -1000;
   private mouseY: number = -1000;
+  private isMobile!: boolean;
+  private animationFrameId: number | null = null;
 
   private settings: Settings = {
     triangleOpacity: 0.05,
@@ -43,6 +45,11 @@ export class BackgroundCanvas {
   constructor(canvasId: string) {
     this.canvas = document.getElementById(canvasId) as HTMLCanvasElement;
     if (!this.canvas) return;
+
+    // Проверяем, является ли устройство мобильным
+    this.isMobile = window.matchMedia('(max-width: 768px)').matches ||
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
     const context = this.canvas.getContext('2d');
     if (!context) {
       throw new Error('Could not get canvas context');
@@ -55,19 +62,53 @@ export class BackgroundCanvas {
   private init(): void {
     this.resizeCanvas();
     this.createTriangles();
-    this.drawFrame();
 
-    window.addEventListener('resize', () => this.resizeCanvas());
-    this.canvas.addEventListener('mousemove', (e) => this.handleMouseMove(e));
-    this.canvas.addEventListener('mouseout', () => {
-      this.mouseX = -1000;
-      this.mouseY = -1000;
+    if (this.isMobile) {
+      // На мобильных просто рисуем один раз
+      this.drawStatic();
+    } else {
+      // На десктопах запускаем анимацию
+      this.startAnimation();
+      this.canvas.addEventListener('mousemove', (e) => this.handleMouseMove(e));
+      this.canvas.addEventListener('mouseout', () => {
+        this.mouseX = -1000;
+        this.mouseY = -1000;
+      });
+    }
+
+    window.addEventListener('resize', () => {
+      this.resizeCanvas();
+      if (this.isMobile) {
+        this.drawStatic();
+      }
+    });
+  }
+
+  private startAnimation(): void {
+    if (this.animationFrameId) {
+      cancelAnimationFrame(this.animationFrameId);
+    }
+    this.drawFrame();
+  }
+
+  private drawStatic(): void {
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    this.triangles.forEach(tri => {
+      this.drawTriangle(tri);
     });
   }
 
   private resizeCanvas(): void {
-    this.canvas.width = window.innerWidth - 160;
+    // Используем document.documentElement.clientWidth для правильного расчета ширины
+    const width = Math.min(
+      document.documentElement.clientWidth,
+      window.innerWidth
+    );
+    this.canvas.width = width - 160;
     this.canvas.height = window.innerHeight;
+
+    // Пересоздаем треугольники при изменении размера
+    this.createTriangles();
   }
 
   private createTriangles(): void {
@@ -154,7 +195,7 @@ export class BackgroundCanvas {
       this.ctx.restore();
     }
 
-    requestAnimationFrame(() => this.drawFrame());
+    this.animationFrameId = requestAnimationFrame(() => this.drawFrame());
   }
 
   private drawTriangle(tri: Triangle): void {
@@ -192,5 +233,17 @@ export class BackgroundCanvas {
     const rect = this.canvas.getBoundingClientRect();
     this.mouseX = e.clientX - rect.left;
     this.mouseY = e.clientY - rect.top;
+  }
+
+  public destroy(): void {
+    if (this.animationFrameId) {
+      cancelAnimationFrame(this.animationFrameId);
+    }
+    window.removeEventListener('resize', () => this.resizeCanvas());
+    this.canvas.removeEventListener('mousemove', (e) => this.handleMouseMove(e));
+    this.canvas.removeEventListener('mouseout', () => {
+      this.mouseX = -1000;
+      this.mouseY = -1000;
+    });
   }
 }
