@@ -1,4 +1,4 @@
-export class DropdownManager {
+export class FAQDropdownManager {
   private items: NodeListOf<HTMLElement>;
 
   constructor(items: NodeListOf<HTMLElement>) {

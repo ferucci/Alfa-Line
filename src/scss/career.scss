@@ -63,7 +63,17 @@
     }
   }
 
-  &__content {}
+  &__item {
+    transition: opacity 0.3s ease;
+  }
+
+  &__content {
+    min-height: 10rem;
+  }
+
+  &__no-results {
+    font-size: $fs-text;
+  }
 
 }
 

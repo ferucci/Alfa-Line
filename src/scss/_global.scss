@@ -86,12 +86,14 @@ a {
 }
 
 .not-found-page {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 55vh;
-  flex-direction: column;
-  gap: 2rem;
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 55vh;
+    flex-direction: column;
+    gap: 2rem;
+  }
 
   &__title {
     @include mixin.titleSmall($fs: clamp(1rem, 3vw, 2rem));

@@ -35,22 +35,22 @@
         <nav class="header__nav nav">
           <ul class="nav__list" role='list'>
             <li class="nav__item">
-              <a href="#" class="nav__link action">Продукция</a>
+              <a href="products.html" class="nav__link action">Продукция</a>
             </li>
             <li class="nav__item">
-              <a href="#" class="nav__link action">Сферы применения</a>
+              <a href="spheres.html" class="nav__link action">Сферы применения</a>
             </li>
             <li class="nav__item">
-              <a href="#" class="nav__link action">О компании</a>
+              <a href="about.html" class="nav__link action">О компании</a>
             </li>
             <li class="nav__item">
-              <a href="#" class="nav__link action">Сертификаты</a>
+              <a href="docs.html" class="nav__link action">Сертификаты</a>
             </li>
             <li class="nav__item">
-              <a href="#" class="nav__link action">Контакты</a>
+              <a href="contacts.html" class="nav__link action">Контакты</a>
             </li>
             <li class="nav__item">
-              <a href="#" class="nav__link action">Вакансии</a>
+              <a href="career.html" class="nav__link action">Вакансии</a>
             </li>
 
             <button class="header__btn action mobile-btn" type="button">
@@ -60,7 +60,7 @@
 
         </nav>
 
-        <button class="header__btn action" type="button">
+        <button class="header__btn action" type="button" id="showModalForm">
           Обратный звонок
         </button>
       </div>
@@ -72,7 +72,7 @@
     <section class="section hero">
       <div class="container">
         <div class="hero__inner">
-          <h1 class="hero__title title">
+          <h1 class="hero__title title animate animate-show-left">
             AlfaLine для сельское хозяйства
             и ветеринарии
           </h1>
@@ -87,10 +87,10 @@
           </picture>
 
           <div class="hero__adv">
-            <ul class="hero__adv-list">
-              <li class="hero__adv-item">Дезинфекция</li>
-              <li class="hero__adv-item">Лечение и профилактика </li>
-              <li class="hero__adv-item">Защита растений и сохранность урожая</li>
+            <ul class="hero__adv-list animate">
+              <li class="hero__adv-item animate-show-left">Дезинфекция</li>
+              <li class="hero__adv-item animate-show-left">Лечение и профилактика </li>
+              <li class="hero__adv-item animate-show-left">Защита растений и сохранность урожая</li>
             </ul>
           </div>
         </div>
@@ -113,7 +113,7 @@
               </p>
             </div>
             <ul class="applying-cards__list">
-              <li class="applying-cards__item applying-card">
+              <li class="applying-cards__item applying-card animate">
                 <div class="applying-card__item-image">
                   <picture>
                     <source media="(max-width: 576px)" srcset="/src/images/applying/applying-card-item-small-1.jpg">
@@ -123,7 +123,7 @@
                     <img src="/src/images/applying/applying-card-item-small-1.jpg" alt="">
                   </picture>
                 </div>
-                <div class="applying-card__item-content">
+                <div class="applying-card__item-content animate-show-right">
                   <h3>Дезинфекция</h3>
                   <p>
                     AlfaLine SAFE D служит альтернативным реагентом в процессе обработки и дезинфекции помещений
@@ -141,9 +141,9 @@
                 </div>
               </li>
 
-              <li class="applying-cards__item applying-card">
+              <li class="applying-cards__item applying-card animate">
 
-                <div class="applying-card__item-content">
+                <div class="applying-card__item-content  animate-show-left">
                   <h3>Лечение и профилактика</h3>
                   <p>
                     Для профилактики и лечения болезней птиц рекомендована обработка кормов 1% (по ДВ) раствором
@@ -181,7 +181,8 @@
               </p>
             </div>
             <ul class="applying-cards__list">
-              <li class="applying-cards__item applying-card">
+
+              <li class="applying-cards__item applying-card animate">
                 <div class="applying-card__item-image">
                   <picture>
                     <source media="(max-width: 576px)" srcset="/src/images/applying/applying-card-item-large-3.jpg">
@@ -191,7 +192,7 @@
                     <img src="/src/images/applying/applying-card-item-large-3.jpg" alt="">
                   </picture>
                 </div>
-                <div class="applying-card__item-content">
+                <div class="applying-card__item-content  animate-show-right">
                   <h3>Дезинфекция</h3>
                   <p>
                     Обладает высокой эффективностью при обработке почвы, посевов, семян, растений, урожая и поверхностей
@@ -233,8 +234,8 @@
             </a>
           </div>
           <div class="swiper products-slider">
-            <ul class="swiper-wrapper products__list" role="list">
-              <li class="swiper-slide products__item">
+            <ul class="swiper-wrapper products__list animate" role="list">
+              <li class="swiper-slide products__item animate-show-right">
                 <article class="product">
                   <div class="product__image-container">
                     <img class="product__image  swiper-lazy" src="src/images/products/product.png" alt="image product">
@@ -252,7 +253,7 @@
                   </div>
                 </article>
               </li>
-              <li class="swiper-slide products__item">
+              <li class="swiper-slide products__item animate-show-right">
                 <article class="product">
                   <div class="product__image-container">
                     <img class="product__image  swiper-lazy" src="src/images/products/product.png" alt="image product">
@@ -284,9 +285,9 @@
             Имеем всю необходимую сертификацию
           </h3>
           <div class="docs-slider swiper">
-            <ul class="docs__list swiper-wrapper" role="list">
+            <ul class="docs__list swiper-wrapper animate" role="list">
 
-              <li class="docs__item certificate-card swiper-slide">
+              <li class="docs__item certificate-card swiper-slide animate-show-bottom" data-animate-child>
                 <div class="certificate-card__image">
                   <img class="certificate-image" src="src/images/sertificates/certificate-example.png" alt="Сертификат">
                   <button class="download-button">
@@ -302,7 +303,7 @@
                   <p>Название сертификата обычно очень длинное, поэтому места побольше оставил</p>
                 </div>
               </li>
-              <li class="docs__item certificate-card swiper-slide">
+              <li class="docs__item certificate-card swiper-slide animate-show-bottom" data-animate-child>
                 <div class="certificate-card__image">
                   <img class="certificate-image" src="src/images/sertificates/certificate-example.png" alt="Сертификат">
                   <button class="download-button">
@@ -318,7 +319,7 @@
                   <p>Название сертификата обычно очень длинное, поэтому места побольше оставил</p>
                 </div>
               </li>
-              <li class="docs__item certificate-card swiper-slide">
+              <li class="docs__item certificate-card swiper-slide animate-show-bottom" data-animate-child>
                 <div class="certificate-card__image">
                   <img class="certificate-image" src="src/images/sertificates/certificate-example.png" alt="Сертификат">
                   <button class="download-button">
@@ -334,7 +335,7 @@
                   <p>Название сертификата обычно очень длинное, поэтому места побольше оставил</p>
                 </div>
               </li>
-              <li class="docs__item certificate-card swiper-slide">
+              <li class="docs__item certificate-card swiper-slide animate-show-bottom" data-animate-child>
                 <div class="certificate-card__image">
                   <img class="certificate-image" src="src/images/sertificates/certificate-example.png" alt="Сертификат">
                   <button class="download-button">
@@ -350,7 +351,7 @@
                   <p>Название сертификата обычно очень длинное, поэтому места побольше оставил</p>
                 </div>
               </li>
-              <li class="docs__item certificate-card swiper-slide">
+              <li class="docs__item certificate-card swiper-slide animate-show-bottom" data-animate-child>
                 <div class="certificate-card__image">
                   <img class="certificate-image" src="src/images/sertificates/certificate-example.png" alt="Сертификат">
                   <button class="download-button">

@@ -9,11 +9,17 @@
   }
 }
 
+
+.animate-show-top,
 .animate-show-left,
 .animate-show-bottom,
 .animate-show-right {
   opacity: 0;
   transition: opacity 1.8s ease, transform .8s ease;
+}
+
+.animate-show-top {
+  transform: translateY(-200%);
 }
 
 .animate-show-left {
@@ -34,6 +40,8 @@
   transition: all 1.2s;
 }
 
+.animate-show-top.animate-active,
+.animate-active .animate-show-top,
 .animate-show-bottom.animate-active,
 .animate-active .animate-show-bottom,
 .animate-show-left.animate-active,
@@ -46,17 +54,40 @@
   opacity: 1;
 }
 
-
 @mixin transitionDelay($activeDelay: .5s,
   $opacityDelay: .5s,
   $transformDelay: .5s) {
   transition: opacity $activeDelay ease $opacityDelay, transform $activeDelay ease $transformDelay;
 }
 
+// Генерация случайных задержек для docs элементов
+@function random-delay($max: 20) {
+  @return random($max) * 0.1+0.2s; // Генерирует задержку от 0.1s до 0.2s (можно настроить)
+}
 
-// hero
 
-.hero__adv-list {
+// docs__list
+
+.docs {
+  &__list {
+    &.animate-active {
+
+      // Для всех li элементов внутри
+      @for $i from 1 through 20 {
+
+        li:nth-child(#{$i}) {
+          $delay: $i * 0.1s + random-delay();
+          @include transitionDelay(.8s, $delay, $delay);
+        }
+      }
+    }
+  }
+}
+
+// ----------------------
+
+.hero__adv-list,
+.pride__adv-list {
 
   &.animate-active {
     li:nth-child(1) {
@@ -74,7 +105,73 @@
 
 }
 
+// pride 
+
+.pride {
+  &__banner {
+    transform: scale(0);
+    @include transitionDelay(.8s, .2s, .2s);
+
+    &.animate-active {
+      transform: scale(1);
+    }
+  }
+}
+
 // --------------
+
+// about-page hero
+
+.about-page {
+  .hero__adv-list {
+
+    &.animate-active {
+      li:nth-child(1) {
+        @include transitionDelay(.8s, 1.5s, 1.5s);
+      }
+
+      li:nth-child(2) {
+        @include transitionDelay(.8s, 1.2s, 1.2s);
+      }
+    }
+
+  }
+}
+
+// --------------
+
+// product-item
+
+.product-item {
+  &__docs-item:nth-child(1) {
+    @include transitionDelay(.5s, .2s, .4s);
+  }
+
+  &__docs-item:nth-child(2) {
+    @include transitionDelay(.5s, .3s, .5s);
+  }
+
+  &__docs-item:nth-child(3) {
+    @include transitionDelay(.5s, .5s, .7s);
+  }
+
+  &__docs-item:nth-child(4) {
+    @include transitionDelay(.5s, .7s, .9s);
+  }
+
+  &__submit {
+    transform: scale(0);
+    @include transitionDelay(.5s, 1.7s, 1.9s);
+
+    &.animate-active {
+      transform: scale(1);
+    }
+
+    animation: ring 0.2s 5s alternate;
+  }
+}
+
+// ---------------
 
 // advantages
 
@@ -117,7 +214,19 @@
 }
 
 // --------------
+// production
+.production {
+  &__desc {
+    transform: scale(0);
+    transition: transform .4s ease .7s;
 
+    &.animate-active {
+      transform: scale(1);
+    }
+  }
+}
+
+// --------------
 // products 
 
 .products {
@@ -265,30 +374,6 @@
 }
 
 // ----------------------
-
-// docs__list
-
-.docs {
-  &__list {
-    &.animate-active {
-      li:nth-child(1) {
-        @include transitionDelay(.8s, .2s, .2s);
-      }
-
-      li:nth-child(2) {
-        @include transitionDelay(.8s, .5s, .5s);
-      }
-
-      li:nth-child(3) {
-        @include transitionDelay(.8s, .8s, .8s);
-      }
-
-      li:nth-child(4) {
-        @include transitionDelay(.8s, .1s, .1s);
-      }
-    }
-  }
-}
 
 // canvas 
 .advantages {

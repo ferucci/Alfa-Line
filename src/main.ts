@@ -2,7 +2,8 @@ import { animation } from './typescript/animation';
 import { BackgroundCanvas } from './typescript/animation/canvas';
 import { burgerModal } from './typescript/burger';
 import { downloadImage } from './typescript/downloadDocs';
-import { DropdownManager } from './typescript/dropdown';
+import { FAQDropdownManager } from './typescript/dropdown';
+import { filterVacancies } from './typescript/filter';
 import { Gallery } from './typescript/gallery';
 import { sliders } from './typescript/sliders';
 import { FormManager } from './typescript/validForm';
@@ -17,12 +18,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   burgerModal()
 
+  // Все слайдеры
   sliders()
+
+  // Слайдер галлереи сертификатов
   Gallery()
 
-  new DropdownManager(dropdownItems);
+  // Анимация появления элементов при скролле
+  animation()
 
-  // Инициализация FormManager
+  // Фильтрация careers
+  filterVacancies();
+
+  // FAQ
+  new FAQDropdownManager(dropdownItems);
+
+  // Треугольники на фоне
+  new BackgroundCanvas('bgCanvas');
+
+  // Инициализация FormManager ( обе формы )
   const formManager = new FormManager({
     formId: "contactForm", // ID основной формы
     modalFormId: "modalForm", // ID формы в модальном окне
@@ -30,13 +44,8 @@ document.addEventListener('DOMContentLoaded', () => {
     formPopupId: "formPopup" // ID попапа с формой
   });
 
-  // открытие формы в модалке
   document.querySelectorAll('.header__btn, .mobile-btn').forEach(btn => {
     btn.addEventListener('click', () => formManager.showPopup("formPopup"));
   });
-
-  animation()
-
-  new BackgroundCanvas('bgCanvas');
 
 });
