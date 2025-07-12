@@ -104,7 +104,7 @@ export class BackgroundCanvas {
       document.documentElement.clientWidth,
       window.innerWidth
     );
-    this.canvas.width = width - 160;
+    this.canvas.width = width;
     this.canvas.height = window.innerHeight;
 
     // Пересоздаем треугольники при изменении размера
